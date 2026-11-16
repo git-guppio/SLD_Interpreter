@@ -1,0 +1,113 @@
+{
+  "schema": "sld-beta3-integration-execution-proof/v1",
+  "dev14c_file_count_compared": 78,
+  "dev14c_files_changed": 0,
+  "beta3_unit_tests_passed": 62,
+  "dev14c_unit_tests_passed": 49,
+  "real_sld_full_document_smokes": {
+    "PV6": {
+      "status": "COMPLETE_INTEGRATION_DIAGNOSTIC",
+      "counts": {
+        "conversion_units": 2,
+        "iocb": 0,
+        "mv_lv_transformers": 3,
+        "inverters": 3,
+        "lv_lv_transformers": 0,
+        "string_boxes": 35,
+        "unresolved_membership": 0,
+        "count_policy": "RESOLVED_HIERARCHICAL_MEMBERSHIP_ONLY",
+        "conversion_units_sld_hierarchy": 2,
+        "layout_only_conversion_units": 0,
+        "cu_count_basis": "CANONICAL_EXPLICIT_CU_IDENTITIES_ACROSS_SLD_AND_OPTIONAL_LAYOUT"
+      },
+      "feeder_summary": {
+        "explicit_schedule_membership_count": 0,
+        "explicit_schedule_feeder_count": 0,
+        "explicit_schedule_conflict_count": 0,
+        "sld_xfr_identity_crosschecked_count": 0,
+        "graph_verified_cu_mv_membership_count": 0,
+        "graph_conflict_count": 0,
+        "feeder_trace_count": 0,
+        "fully_graph_verified_feeder_count": 0,
+        "end_to_end_graph_trace_complete_count": 0,
+        "operator_xfr_terminal_bound_instance_count": 0,
+        "operator_feeder_root_bound_count": 0,
+        "operator_calibrated_graph_verified_count": 0,
+        "operator_added_bridge_count": 0,
+        "operator_added_instance_bridge_count": 0,
+        "operator_modeled_interposed_device_count": 0,
+        "operator_added_device_topology_edge_count": 0,
+        "breakpoint_review_count": 0,
+        "breakpoint_continuity_confirmed_count": 0,
+        "breakpoint_interposed_device_count": 0,
+        "breakpoint_non_electrical_graphic_count": 0,
+        "breakpoint_unresolved_count": 0,
+        "excluded_non_electrical_graphic_node_count": 0,
+        "suggested_breakpoint_count": 0
+      },
+      "beta3": {
+        "inspections_completed": 2,
+        "inspection_budget": 4,
+        "named_fused_symbol_count": 3,
+        "local_geometric_path_candidates": 0,
+        "disconnected_in_roi": 2,
+        "unresolved_in_roi": 0,
+        "beta3_graph_verified_feeder_membership": 0,
+        "reason": "No complete feeder root to CU trace established by beta3"
+      }
+    },
+    "PV7": {
+      "status": "COMPLETE_INTEGRATION_DIAGNOSTIC",
+      "counts": {
+        "conversion_units": 1,
+        "iocb": 0,
+        "mv_lv_transformers": 2,
+        "inverters": 2,
+        "lv_lv_transformers": 0,
+        "string_boxes": 25,
+        "unresolved_membership": 0,
+        "count_policy": "RESOLVED_HIERARCHICAL_MEMBERSHIP_ONLY",
+        "conversion_units_sld_hierarchy": 1,
+        "layout_only_conversion_units": 0,
+        "cu_count_basis": "CANONICAL_EXPLICIT_CU_IDENTITIES_ACROSS_SLD_AND_OPTIONAL_LAYOUT"
+      },
+      "feeder_summary": {
+        "explicit_schedule_membership_count": 0,
+        "explicit_schedule_feeder_count": 0,
+        "explicit_schedule_conflict_count": 0,
+        "sld_xfr_identity_crosschecked_count": 0,
+        "graph_verified_cu_mv_membership_count": 0,
+        "graph_conflict_count": 0,
+        "feeder_trace_count": 0,
+        "fully_graph_verified_feeder_count": 0,
+        "end_to_end_graph_trace_complete_count": 0,
+        "operator_xfr_terminal_bound_instance_count": 0,
+        "operator_feeder_root_bound_count": 0,
+        "operator_calibrated_graph_verified_count": 0,
+        "operator_added_bridge_count": 0,
+        "operator_added_instance_bridge_count": 0,
+        "operator_modeled_interposed_device_count": 0,
+        "operator_added_device_topology_edge_count": 0,
+        "breakpoint_review_count": 0,
+        "breakpoint_continuity_confirmed_count": 0,
+        "breakpoint_interposed_device_count": 0,
+        "breakpoint_non_electrical_graphic_count": 0,
+        "breakpoint_unresolved_count": 0,
+        "excluded_non_electrical_graphic_node_count": 0,
+        "suggested_breakpoint_count": 0
+      },
+      "beta3": {
+        "inspections_completed": 1,
+        "inspection_budget": 4,
+        "named_fused_symbol_count": 2,
+        "local_geometric_path_candidates": 0,
+        "disconnected_in_roi": 1,
+        "unresolved_in_roi": 0,
+        "beta3_graph_verified_feeder_membership": 0,
+        "reason": "No complete feeder root to CU trace established by beta3"
+      }
+    }
+  },
+  "ground_truth_accessed": false,
+  "notes": "Smoke counts are inferred, not validated against regression oracles"
+}

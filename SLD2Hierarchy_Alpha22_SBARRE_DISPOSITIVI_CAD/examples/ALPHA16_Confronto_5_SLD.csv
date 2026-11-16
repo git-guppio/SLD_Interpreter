@@ -1,0 +1,6 @@
+﻿Impianto;Metodo;CU;TR_candidati;INV;SB_documentate_complete;INV_con_SB;Validazione
+PV11 Pampa Norte;Alpha12 / etichette;22;44;88;923;88/88;Quantita per INV confermate manualmente
+PV5;Alpha15 / tag CAD;7;13;13;174;12/13;Totale SB PARZIALE
+PV6;Alpha15 / tag CAD;2;3;3;35;3/3;Da validare indipendentemente
+PV7;Alpha15 / tag CAD;1;2;2;13;1/2;Totale SB PARZIALE
+PV8;Alpha16 / LVL-SB;55;110;220;1320;220/220;"SB esplicite; parent TR solo candidati"

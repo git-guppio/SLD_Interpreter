@@ -1,0 +1,65 @@
+{
+  "schema": "sld-beta3-alpha2-example-summary/v1",
+  "plant_id": "CI::CHECK7",
+  "status": "COMPLETE_INTEGRATION_DIAGNOSTIC",
+  "input_files": {
+    "sld": "PV7.pdf",
+    "layout": null
+  },
+  "membership_provenance_counts": {
+    "canonical_cu_feeder_membership_count": 0,
+    "structural_inferred_count": 0,
+    "explicit_schedule_membership_count": 0,
+    "canonical_detected_count": 0,
+    "other_canonical_count": 0,
+    "graph_verified_membership_count": 0
+  },
+  "cu_queue_summary": {
+    "canonical_cu_tasks": 1,
+    "with_sld_anchor": 1,
+    "with_same_anchor_terminal_candidate": 0,
+    "blockers": {
+      "NO_TERMINAL_BOUND_TO_CANONICAL_CU_ANCHOR": 1
+    },
+    "graph_verified_feeder_membership": 0
+  },
+  "neighborhood_inspections": [
+    {
+      "canonical_cu_id": "CI::CHECK7::CU::1",
+      "page": 2,
+      "source_anchor_id": "CI::CHECK7::SLD_P002_TXT_0014",
+      "roi": [
+        713.458,
+        279.669,
+        813.348,
+        554.8430000000001
+      ],
+      "status": "COMPLETE_DIAGNOSTIC",
+      "geometry": {
+        "raw_strokes": 12555,
+        "clipped_strokes": 2,
+        "classified_candidates": 2,
+        "graph_status": "COMPLETE",
+        "nodes": 4,
+        "edges": 2,
+        "components": 2,
+        "clip_statistics": {
+          "OUTSIDE_ROI": 12553,
+          "FULLY_INSIDE_ROI": 2,
+          "RETAINED_AFTER_ROI_CLIPPING": 2
+        },
+        "normalization": {
+          "CANDIDATES_RETAINED": 2,
+          "SHORT_UNDER_8PT_RETAINED": 0,
+          "COLORED_RETAINED": 0
+        },
+        "warnings": []
+      },
+      "electrical_path_verified": false,
+      "reason": "Single-CU anchor neighborhood; no independently verified feeder root/terminal pair"
+    }
+  ],
+  "beta3_graph_verified_membership": 0,
+  "ground_truth_used": false,
+  "expected_counts_used": false
+}

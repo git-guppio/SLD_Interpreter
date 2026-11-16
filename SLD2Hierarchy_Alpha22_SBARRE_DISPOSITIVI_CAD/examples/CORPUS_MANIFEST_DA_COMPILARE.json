@@ -1,0 +1,39 @@
+{
+  "cases": [
+    {
+      "case_id": "CASE_002_PV2",
+      "pdf": "C:/PERCORSO/AI/PDF/PV2.pdf",
+      "plant_id": "PV2"
+    },
+    {
+      "case_id": "CASE_003_PV3",
+      "pdf": "C:/PERCORSO/AI/PDF/PV3.pdf",
+      "plant_id": "PV3"
+    },
+    {
+      "case_id": "CASE_004_PV4",
+      "pdf": "C:/PERCORSO/AI/PDF/PV4.pdf",
+      "plant_id": "PV4"
+    },
+    {
+      "case_id": "CASE_005_PV5",
+      "pdf": "C:/PERCORSO/AI/PDF/PV5.pdf",
+      "plant_id": "PV5"
+    },
+    {
+      "case_id": "CASE_006_PV6",
+      "pdf": "C:/PERCORSO/AI/PDF/PV6.pdf",
+      "plant_id": "PV6"
+    },
+    {
+      "case_id": "CASE_007_PV7",
+      "pdf": "C:/PERCORSO/AI/PDF/PV7.pdf",
+      "plant_id": "PV7"
+    },
+    {
+      "case_id": "CASE_008_PV8",
+      "pdf": "C:/PERCORSO/AI/PDF/PV8.pdf",
+      "plant_id": "PV8"
+    }
+  ]
+}

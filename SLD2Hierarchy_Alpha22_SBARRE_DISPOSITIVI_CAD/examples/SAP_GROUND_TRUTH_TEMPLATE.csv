@@ -1,0 +1,7 @@
+plant_id;source_document;scope_type;scope_id;parent_scope_id;asset_type;quantity_known;quantity_graphically_drawn;pages_or_evidence;representation;notes
+PV_NEW;PV_NEW_SLD.pdf;PLANT;PLANT;;CONVERSION_UNIT;;;;;
+PV_NEW;PV_NEW_SLD.pdf;CU;CU_01;PLANT;IOCB;;;;;
+PV_NEW;PV_NEW_SLD.pdf;CU;CU_01;PLANT;MV_LV_TRANSFORMER;;;;;
+PV_NEW;PV_NEW_SLD.pdf;CU;CU_01;PLANT;CENTRAL_INVERTER;;;;;
+PV_NEW;PV_NEW_SLD.pdf;INVERTER;INV_01;CU_01;LV_LV_TRANSFORMER;;;;;
+PV_NEW;PV_NEW_SLD.pdf;INVERTER;INV_01;CU_01;STRING_BOX;;;;;

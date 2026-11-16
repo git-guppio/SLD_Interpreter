@@ -1,0 +1,142 @@
+{
+  "schema": "sld-sap-multistyle-alpha15/v1",
+  "plant_id": "CI::PV6",
+  "source_pdf": "/mnt/data/PV6.pdf",
+  "method": "indexed-native-tags / explicitly identified boxes",
+  "pages": [
+    {
+      "page": 1,
+      "native_characters": 1860,
+      "native_text": true
+    },
+    {
+      "page": 2,
+      "native_characters": 4145,
+      "native_text": true
+    },
+    {
+      "page": 3,
+      "native_characters": 3904,
+      "native_text": true
+    },
+    {
+      "page": 4,
+      "native_characters": 4145,
+      "native_text": true
+    }
+  ],
+  "cu_keys": [
+    [
+      "NNB",
+      1
+    ],
+    [
+      "NNB",
+      2
+    ]
+  ],
+  "cus": [
+    1,
+    2
+  ],
+  "transformers": [
+    {
+      "prefix": "NNB",
+      "CU": 1,
+      "TR": 1,
+      "id": "NNB-TPO-01-01",
+      "page": 1,
+      "evidence": "PV6.pdf:p1:NNB-TPO-01-01:xy=(283.72, 609.97)"
+    },
+    {
+      "prefix": "NNB",
+      "CU": 2,
+      "TR": 1,
+      "id": "NNB-TPO-02-01",
+      "page": 1,
+      "evidence": "PV6.pdf:p1:NNB-TPO-02-01:xy=(281.26, 182.17)"
+    },
+    {
+      "prefix": "NNB",
+      "CU": 2,
+      "TR": 2,
+      "id": "NNB-TPO-02-02",
+      "page": 1,
+      "evidence": "PV6.pdf:p1:NNB-TPO-02-02:xy=(281.26, 344.59)"
+    }
+  ],
+  "rows": [
+    {
+      "CU": 1,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 13,
+      "prefix": "NNB",
+      "printed_inv_slot": 1,
+      "inv_id": "NNB-INV-01-01",
+      "tr_id": "NNB-TPO-01-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 13,
+      "box_max_id": 13,
+      "box_missing_ids": [],
+      "page": 2,
+      "inverter_evidence": "PV6.pdf:p2:NNB-INV-01-01:xy=(767.16, 408.35)",
+      "transformer_evidence": "PV6.pdf:p1:NNB-TPO-01-01:xy=(283.72, 609.97)",
+      "box_evidence": "PV6.pdf:p2:NNB-CST-01-I01-12-01:xy=(486.13, 107.05) | PV6.pdf:p2:NNB-CST-01-I01-20-02:xy=(599.53, 148.81) | PV6.pdf:p2:NNB-CST-01-I01-20-03:xy=(486.25, 194.11) | PV6.pdf:p2:NNB-CST-01-I01-12-04:xy=(599.95, 235.45) | PV6.pdf:p2:NNB-CST-01-I01-20-05:xy=(486.01, 278.95) | PV6.pdf:p2:NNB-CST-01-I01-20-06:xy=(599.05, 320.35) | PV6.pdf:p2:NNB-CST-01-I01-20-07:xy=(486.43, 363.73) | PV6.pdf:p2:NNB-CST-01-I01-20-08:xy=(599.59, 405.18) | PV6.pdf:p2:NNB-CST-01-I01-20-09:xy=(485.65, 448.86) | PV6.pdf:p2:NNB-CST-01-I01-12-10:xy=(598.87, 489.30) | PV6.pdf:p2:NNB-CST-01-I01-16-11:xy=(485.59, 533.82) | PV6.pdf:p2:NNB-CST-01-I01-20-12:xy=(598.87, 575.88) | PV6.pdf:p2:NNB-CST-01-I01-20-13:xy=(484.99, 618.42)"
+    },
+    {
+      "CU": 2,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 9,
+      "prefix": "NNB",
+      "printed_inv_slot": 1,
+      "inv_id": "NNB-INV-02-01",
+      "tr_id": "NNB-TPO-02-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 9,
+      "box_max_id": 9,
+      "box_missing_ids": [],
+      "page": 3,
+      "inverter_evidence": "PV6.pdf:p3:NNB-INV-02-01:xy=(780.84, 449.63)",
+      "transformer_evidence": "PV6.pdf:p1:NNB-TPO-02-01:xy=(281.26, 182.17)",
+      "box_evidence": "PV6.pdf:p3:NNB-CST-02-I01-20-01:xy=(500.11, 205.99) | PV6.pdf:p3:NNB-CST-02-I01-16-02:xy=(613.21, 247.21) | PV6.pdf:p3:NNB-CST-02-I01-16-03:xy=(499.87, 291.73) | PV6.pdf:p3:NNB-CST-02-I01-14-04:xy=(612.85, 332.10) | PV6.pdf:p3:NNB-CST-02-I01-14-05:xy=(499.69, 376.39) | PV6.pdf:p3:NNB-CST-02-I01-20-06:xy=(613.03, 418.44) | PV6.pdf:p3:NNB-CST-02-I01-20-07:xy=(499.87, 461.46) | PV6.pdf:p3:NNB-CST-02-I01-20-08:xy=(613.51, 503.70) | PV6.pdf:p3:NNB-CST-02-I01-16-09:xy=(499.63, 546.90)"
+    },
+    {
+      "CU": 2,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 13,
+      "prefix": "NNB",
+      "printed_inv_slot": 2,
+      "inv_id": "NNB-INV-02-02",
+      "tr_id": "NNB-TPO-02-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 13,
+      "box_max_id": 13,
+      "box_missing_ids": [],
+      "page": 4,
+      "inverter_evidence": "PV6.pdf:p4:NNB-INV-02-02:xy=(757.98, 413.75)",
+      "transformer_evidence": "PV6.pdf:p1:NNB-TPO-02-02:xy=(281.26, 344.59)",
+      "box_evidence": "PV6.pdf:p4:NNB-CST-02-I02-12-01:xy=(477.25, 118.50) | PV6.pdf:p4:NNB-CST-02-I02-12-02:xy=(590.41, 160.75) | PV6.pdf:p4:NNB-CST-02-I02-16-03:xy=(477.07, 204.61) | PV6.pdf:p4:NNB-CST-02-I02-16-04:xy=(590.05, 246.13) | PV6.pdf:p4:NNB-CST-02-I02-20-05:xy=(476.83, 289.27) | PV6.pdf:p4:NNB-CST-02-I02-20-06:xy=(590.23, 329.41) | PV6.pdf:p4:NNB-CST-02-I02-20-07:xy=(477.01, 374.52) | PV6.pdf:p4:NNB-CST-02-I02-20-08:xy=(590.71, 417.18) | PV6.pdf:p4:NNB-CST-02-I02-20-09:xy=(476.83, 459.96) | PV6.pdf:p4:NNB-CST-02-I02-20-10:xy=(590.89, 501.54) | PV6.pdf:p4:NNB-CST-02-I02-20-11:xy=(476.35, 545.04) | PV6.pdf:p4:NNB-CST-02-I02-20-12:xy=(590.83, 586.80) | PV6.pdf:p4:NNB-CST-02-I02-16-13:xy=(476.83, 629.70)"
+    }
+  ],
+  "issues": [],
+  "summary": {
+    "cu": 2,
+    "tr_candidate": 3,
+    "inverters": 3,
+    "box_quantities_complete": 3,
+    "box_quantities_unresolved": 0,
+    "box_quantity_total_complete_only": 35,
+    "parent_candidates": 3,
+    "parent_confirmed": 0,
+    "issue_count": 0
+  },
+  "matrix_flow_import_ready": false,
+  "electrical_connections_verified": 0,
+  "validation_status": "NOT_INDEPENDENTLY_VALIDATED"
+}

@@ -1,0 +1,20 @@
+{
+  "schema": "sld-sap-alpha10-reviewed-parentage/v1",
+  "plant_id": "CI::PV11",
+  "instructions": "ESEMPIO LIMITATO ALLA CU2. Da usare soltanto con PV11, non estende ad altre CU.",
+  "confirmed_tr_inverter_groups": [
+    {
+      "cu_ids": [2],
+      "transformer_slot": 1,
+      "inverter_slots": [1, 2],
+      "evidence_ref": "PV11_Pampa_Norte.pdf:p1:CU2:confronto visuale TR1-I2.1-I2.2"
+    },
+    {
+      "cu_ids": [2],
+      "transformer_slot": 2,
+      "inverter_slots": [3, 4],
+      "evidence_ref": "PV11_Pampa_Norte.pdf:p1:CU2:confronto visuale TR2-I2.3-I2.4"
+    }
+  ],
+  "confirmed_assets": []
+}

@@ -1,0 +1,255 @@
+{
+  "schema": "sld-alpha17-vector-triage/v1",
+  "source_pdf": "/mnt/data/PV13_Settimo_Torinese.pdf",
+  "native_text_recognition_available": false,
+  "pages_sampled": 1,
+  "pages": [
+    {
+      "page": 1,
+      "native_words": 0,
+      "vector_drawing_paths": 19744,
+      "raster_images": 0,
+      "rotation_degrees": 270,
+      "ciano_components": 16,
+      "ciano_repeated_groups": 2,
+      "rosso_components": 17,
+      "rosso_repeated_groups": 2,
+      "verde_components": 3,
+      "verde_repeated_groups": 1,
+      "blu_components": 0,
+      "blu_repeated_groups": 0,
+      "magenta_components": 0,
+      "magenta_repeated_groups": 0,
+      "mode": "VECTOR_CAD_DIAGNOSTIC_ONLY"
+    }
+  ],
+  "geometric_repeat_groups": [
+    {
+      "page": 1,
+      "color": "ciano",
+      "occurrences": 6,
+      "nominal_width_px": 161,
+      "nominal_height_px": 30,
+      "bounding_boxes_px": [
+        [
+          190,
+          498,
+          351,
+          528
+        ],
+        [
+          170,
+          400,
+          331,
+          430
+        ],
+        [
+          688,
+          498,
+          849,
+          528
+        ],
+        [
+          439,
+          498,
+          600,
+          528
+        ],
+        [
+          668,
+          400,
+          829,
+          430
+        ],
+        [
+          419,
+          400,
+          580,
+          430
+        ]
+      ],
+      "status": "RIPETIZIONE_GEOMETRICA_NON_CLASSIFICATA",
+      "verified_device_count": 0
+    },
+    {
+      "page": 1,
+      "color": "ciano",
+      "occurrences": 4,
+      "nominal_width_px": 54,
+      "nominal_height_px": 61,
+      "bounding_boxes_px": [
+        [
+          463,
+          83,
+          517,
+          144
+        ],
+        [
+          476,
+          287,
+          532,
+          352
+        ],
+        [
+          594,
+          287,
+          650,
+          352
+        ],
+        [
+          359,
+          287,
+          415,
+          352
+        ]
+      ],
+      "status": "RIPETIZIONE_GEOMETRICA_NON_CLASSIFICATA",
+      "verified_device_count": 0
+    },
+    {
+      "page": 1,
+      "color": "rosso",
+      "occurrences": 2,
+      "nominal_width_px": 239,
+      "nominal_height_px": 201,
+      "bounding_boxes_px": [
+        [
+          592,
+          300,
+          831,
+          501
+        ],
+        [
+          172,
+          300,
+          413,
+          501
+        ]
+      ],
+      "status": "RIPETIZIONE_GEOMETRICA_NON_CLASSIFICATA",
+      "verified_device_count": 0
+    },
+    {
+      "page": 1,
+      "color": "rosso",
+      "occurrences": 12,
+      "nominal_width_px": 34,
+      "nominal_height_px": 30,
+      "bounding_boxes_px": [
+        [
+          690,
+          510,
+          724,
+          540
+        ],
+        [
+          524,
+          510,
+          558,
+          540
+        ],
+        [
+          316,
+          510,
+          349,
+          540
+        ],
+        [
+          732,
+          510,
+          766,
+          540
+        ],
+        [
+          233,
+          510,
+          267,
+          540
+        ],
+        [
+          441,
+          510,
+          475,
+          540
+        ],
+        [
+          274,
+          510,
+          308,
+          540
+        ],
+        [
+          482,
+          510,
+          516,
+          540
+        ],
+        [
+          565,
+          510,
+          599,
+          540
+        ],
+        [
+          814,
+          510,
+          848,
+          540
+        ],
+        [
+          192,
+          510,
+          226,
+          540
+        ],
+        [
+          773,
+          510,
+          807,
+          540
+        ]
+      ],
+      "status": "RIPETIZIONE_GEOMETRICA_NON_CLASSIFICATA",
+      "verified_device_count": 0
+    },
+    {
+      "page": 1,
+      "color": "verde",
+      "occurrences": 2,
+      "nominal_width_px": 33,
+      "nominal_height_px": 92,
+      "bounding_boxes_px": [
+        [
+          909,
+          181,
+          942,
+          273
+        ],
+        [
+          862,
+          181,
+          896,
+          269
+        ]
+      ],
+      "status": "RIPETIZIONE_GEOMETRICA_NON_CLASSIFICATA",
+      "verified_device_count": 0
+    }
+  ],
+  "verified_CU": null,
+  "verified_TR": null,
+  "verified_inverters": null,
+  "verified_string_boxes": null,
+  "electrical_connections_verified": 0,
+  "matrix_flow_import_ready": false,
+  "result_status": "DIAGNOSTICA_GEOMETRICA_NON_GERARCHIA_SAP",
+  "caveat": "Le ripetizioni sono componenti grafici, NON conteggi di asset. Nessun TXT Ground Truth utilizzato.",
+  "cross_document_comparison": {
+    "other_pdf": "/mnt/data/PV3.pdf",
+    "available": true,
+    "sample": "page_1_rgb_render_1000px",
+    "approx_equal_pixel_fraction": 0.996216,
+    "near_duplicate_candidate": true,
+    "warning": "Somiglianza grafica a bassa risoluzione; non prova identita degli impianti"
+  }
+}

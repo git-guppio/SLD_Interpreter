@@ -1,0 +1,133 @@
+{
+  "schema": "sld-beta3-alpha2-example-summary/v1",
+  "plant_id": "CI::PV8",
+  "status": "COMPLETE_INTEGRATION_DIAGNOSTIC",
+  "input_files": {
+    "sld": "PV8_SLD.pdf",
+    "layout": "PV8_LAYOUT.pdf"
+  },
+  "membership_provenance_counts": {
+    "canonical_cu_feeder_membership_count": 55,
+    "structural_inferred_count": 55,
+    "explicit_schedule_membership_count": 0,
+    "canonical_detected_count": 0,
+    "other_canonical_count": 0,
+    "graph_verified_membership_count": 0
+  },
+  "cu_queue_summary": {
+    "canonical_cu_tasks": 55,
+    "with_sld_anchor": 55,
+    "with_same_anchor_terminal_candidate": 1,
+    "blockers": {
+      "NEEDS_INDEPENDENT_SLD_FEEDER_ROOT_AND_DEVICE_TOPOLOGY": 1,
+      "NO_TERMINAL_BOUND_TO_CANONICAL_CU_ANCHOR": 54
+    },
+    "graph_verified_feeder_membership": 0
+  },
+  "neighborhood_inspections": [
+    {
+      "canonical_cu_id": "CI::PV8::CU::1",
+      "page": 1,
+      "source_anchor_id": "CI::PV8::SLD_P001_TXT_0061",
+      "roi": [
+        1272.552,
+        2202.481,
+        1519.497,
+        2310.241
+      ],
+      "status": "COMPLETE_DIAGNOSTIC",
+      "geometry": {
+        "raw_strokes": 18834,
+        "clipped_strokes": 540,
+        "classified_candidates": 540,
+        "graph_status": "COMPLETE",
+        "nodes": 563,
+        "edges": 444,
+        "components": 127,
+        "clip_statistics": {
+          "OUTSIDE_ROI": 18294,
+          "CROSSING_ROI_CLIPPED": 23,
+          "FULLY_INSIDE_ROI": 517,
+          "RETAINED_AFTER_ROI_CLIPPING": 540
+        },
+        "normalization": {
+          "CANDIDATES_RETAINED": 540,
+          "SHORT_UNDER_8PT_RETAINED": 530,
+          "COLORED_RETAINED": 0
+        },
+        "warnings": []
+      },
+      "electrical_path_verified": false,
+      "reason": "Single-CU anchor neighborhood; no independently verified feeder root/terminal pair"
+    },
+    {
+      "canonical_cu_id": "CI::PV8::CU::2",
+      "page": 2,
+      "source_anchor_id": "CI::PV8::SLD_P002_TXT_0023",
+      "roi": [
+        687.556,
+        291.565,
+        997.447,
+        398.485
+      ],
+      "status": "NO_LOCAL_GRAPH_EVIDENCE",
+      "geometry": {
+        "raw_strokes": 8414,
+        "clipped_strokes": 0,
+        "classified_candidates": 0,
+        "graph_status": "COMPLETE",
+        "nodes": 0,
+        "edges": 0,
+        "components": 0,
+        "clip_statistics": {
+          "OUTSIDE_ROI": 8414,
+          "RETAINED_AFTER_ROI_CLIPPING": 0
+        },
+        "normalization": {
+          "CANDIDATES_RETAINED": 0,
+          "SHORT_UNDER_8PT_RETAINED": 0,
+          "COLORED_RETAINED": 0
+        },
+        "warnings": []
+      },
+      "electrical_path_verified": false,
+      "reason": "Single-CU anchor neighborhood; no independently verified feeder root/terminal pair"
+    },
+    {
+      "canonical_cu_id": "CI::PV8::CU::3",
+      "page": 3,
+      "source_anchor_id": "CI::PV8::SLD_P003_TXT_0022",
+      "roi": [
+        684.796,
+        325.765,
+        994.687,
+        432.685
+      ],
+      "status": "NO_LOCAL_GRAPH_EVIDENCE",
+      "geometry": {
+        "raw_strokes": 8311,
+        "clipped_strokes": 0,
+        "classified_candidates": 0,
+        "graph_status": "COMPLETE",
+        "nodes": 0,
+        "edges": 0,
+        "components": 0,
+        "clip_statistics": {
+          "OUTSIDE_ROI": 8311,
+          "RETAINED_AFTER_ROI_CLIPPING": 0
+        },
+        "normalization": {
+          "CANDIDATES_RETAINED": 0,
+          "SHORT_UNDER_8PT_RETAINED": 0,
+          "COLORED_RETAINED": 0
+        },
+        "warnings": []
+      },
+      "electrical_path_verified": false,
+      "reason": "Single-CU anchor neighborhood; no independently verified feeder root/terminal pair"
+    }
+  ],
+  "beta3_graph_verified_membership": 0,
+  "ground_truth_used": false,
+  "expected_counts_used": false
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "sld-sap-multistyle-alpha15/v1",
+  "plant_id": "CI::PV7",
+  "source_pdf": "/mnt/data/PV7.pdf",
+  "method": "indexed-native-tags / explicitly identified boxes",
+  "pages": [
+    {
+      "page": 1,
+      "native_characters": 1573,
+      "native_text": true
+    },
+    {
+      "page": 2,
+      "native_characters": 3997,
+      "native_text": true
+    },
+    {
+      "page": 3,
+      "native_characters": 3996,
+      "native_text": true
+    }
+  ],
+  "cu_keys": [
+    [
+      "IBR",
+      1
+    ]
+  ],
+  "cus": [
+    1
+  ],
+  "transformers": [
+    {
+      "prefix": "IBR",
+      "CU": 1,
+      "TR": 1,
+      "id": "IBR-TPO-01-01",
+      "page": 1,
+      "evidence": "PV7.pdf:p1:IBR-TPO-01-01:xy=(330.10, 291.73)"
+    },
+    {
+      "prefix": "IBR",
+      "CU": 1,
+      "TR": 2,
+      "id": "IBR-TPO-01-02",
+      "page": 1,
+      "evidence": "PV7.pdf:p1:IBR-TPO-01-02:xy=(330.10, 456.79)"
+    }
+  ],
+  "rows": [
+    {
+      "CU": 1,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 13,
+      "prefix": "IBR",
+      "printed_inv_slot": 1,
+      "inv_id": "IBR-INV-01-01",
+      "tr_id": "IBR-TPO-01-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 13,
+      "box_max_id": 13,
+      "box_missing_ids": [],
+      "page": 2,
+      "inverter_evidence": "PV7.pdf:p2:IBR-INV-01-01:xy=(746.40, 411.83)",
+      "transformer_evidence": "PV7.pdf:p1:IBR-TPO-01-01:xy=(330.10, 291.73)",
+      "box_evidence": "PV7.pdf:p2:IBR-CST-01-I01-12-01:xy=(486.19, 109.21) | PV7.pdf:p2:IBR-CST-01-I01-16-02:xy=(599.41, 151.51) | PV7.pdf:p2:IBR-CST-01-I01-20-03:xy=(486.19, 195.61) | PV7.pdf:p2:IBR-CST-01-I01-20-04:xy=(599.95, 237.00) | PV7.pdf:p2:IBR-CST-01-I01-20-05:xy=(486.01, 279.84) | PV7.pdf:p2:IBR-CST-01-I01-16-06:xy=(599.05, 321.05) | PV7.pdf:p2:IBR-CST-01-I01-20-07:xy=(486.37, 365.33) | PV7.pdf:p2:IBR-CST-01-I01-20-08:xy=(599.59, 406.91) | PV7.pdf:p2:IBR-CST-01-I01-20-09:xy=(485.65, 450.11) | PV7.pdf:p2:IBR-CST-01-I01-20-10:xy=(598.87, 491.33) | PV7.pdf:p2:IBR-CST-01-I01-14-11:xy=(485.65, 535.45) | PV7.pdf:p2:IBR-CST-01-I01-16-12:xy=(598.87, 576.83) | PV7.pdf:p2:IBR-CST-01-I01-18-13:xy=(484.93, 619.15)"
+    },
+    {
+      "CU": 1,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": null,
+      "prefix": "IBR",
+      "printed_inv_slot": 2,
+      "inv_id": "IBR-INV-01-02",
+      "tr_id": "IBR-TPO-01-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_INCOMPLETA",
+      "box_ids_observed": 12,
+      "box_max_id": 13,
+      "box_missing_ids": [
+        12
+      ],
+      "page": 3,
+      "inverter_evidence": "PV7.pdf:p3:IBR-INV-01-02:xy=(760.26, 388.97)",
+      "transformer_evidence": "PV7.pdf:p1:IBR-TPO-01-02:xy=(330.10, 456.79)",
+      "box_evidence": "PV7.pdf:p3:IBR-CST-01-I02-20-01:xy=(500.05, 111.72) | PV7.pdf:p3:IBR-CST-01-I02-20-02:xy=(613.27, 153.67) | PV7.pdf:p3:IBR-CST-01-I02-20-03:xy=(499.87, 196.68) | PV7.pdf:p3:IBR-CST-01-I02-16-04:xy=(612.91, 237.37) | PV7.pdf:p3:IBR-CST-01-I02-12-05:xy=(499.69, 280.93) | PV7.pdf:p3:IBR-CST-01-I02-20-06:xy=(613.09, 323.23) | PV7.pdf:p3:IBR-CST-01-I02-20-07:xy=(499.87, 366.23) | PV7.pdf:p3:IBR-CST-01-I02-20-08:xy=(613.45, 408.19) | PV7.pdf:p3:IBR-CST-01-I02-20-09:xy=(499.69, 451.75) | PV7.pdf:p3:IBR-CST-01-I02-16-10:xy=(613.63, 492.97) | PV7.pdf:p3:IBR-CST-01-I02-18-11:xy=(499.15, 536.51) | PV7.pdf:p3:IBR-CST-01-I02-14-13:xy=(499.69, 621.67)"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BOX_SERIAL_GAP",
+      "inverter": "IBR-INV-01-02",
+      "missing_serials": [
+        12
+      ],
+      "candidate_max": 13
+    }
+  ],
+  "summary": {
+    "cu": 1,
+    "tr_candidate": 2,
+    "inverters": 2,
+    "box_quantities_complete": 1,
+    "box_quantities_unresolved": 1,
+    "box_quantity_total_complete_only": 13,
+    "parent_candidates": 2,
+    "parent_confirmed": 0,
+    "issue_count": 1
+  },
+  "matrix_flow_import_ready": false,
+  "electrical_connections_verified": 0,
+  "validation_status": "NOT_INDEPENDENTLY_VALIDATED"
+}

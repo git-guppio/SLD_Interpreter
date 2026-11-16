@@ -1,0 +1,10 @@
+# Riferimento tecnico CORRETTO dall'operatore, 11/11/2026.
+# NON costituisce input del riconoscitore Alpha21.
+# Il precedente TXT che riportava 16 SB per inverter e' stato rettificato.
+CU 01 - TR 01 - INV 01 - QPS/String Box 8
+CU 01 - TR 01 - INV 02 - QPS/String Box 8
+CU 01 - TR 01 - INV 03 - QPS/String Box 8
+Totale: 1 CU, 1 TR, 3 inverter centralizzati, 24 String Box.
+Significato etichetta: QPS-2-4/8 = quarta QPS dell'inverter 2 sulle 8 complessive.
+Convenzione locale dello SLD: non generalizzare il criterio di numerazione ad altri impianti.
+TXT originale non modificato; link TR->INV confermato dall'operatore e non mediante continuita' elettrica automatica.

@@ -1,0 +1,35 @@
+{
+  "schema_version": "beta3-regression-oracle-v1",
+  "notice": "This file is scoring-only. Never import or load from inference path.",
+  "cases": {
+    "CASE_008_PV8": {
+      "expected": {
+        "conversion_units": 55,
+        "mv_lv_transformers": 110,
+        "inverters": 220,
+        "string_boxes": 1320,
+        "mv_feeders": 8,
+        "resolved_cu_mv_membership": 55
+      },
+      "contract": "PV8_DEV8"
+    },
+    "CASE_004_PV4": {
+      "expected": {
+        "conversion_units": 164,
+        "mv_lv_transformers": 164,
+        "inverters": 164,
+        "string_boxes": 2389,
+        "mv_feeders": 16,
+        "resolved_cu_mv_membership": 164
+      },
+      "contract": "PV4_ROADRUNNER"
+    }
+  },
+  "other_contracts": [
+    "MEMBERSHIP_VS_GRAPH_VERIFIED_SEPARATE",
+    "PLANT_SCOPED_LEARNING_NO_LEAKAGE",
+    "GROUND_TRUTH_BLIND_INFERENCE",
+    "NO_EXPECTED_COUNTS_IN_RUNTIME",
+    "NON_ELECTRICAL_GRAPHIC_NEVER_BRIDGES"
+  ]
+}

@@ -1,0 +1,498 @@
+{
+  "schema": "sld-sap-multistyle-alpha15/v1",
+  "plant_id": "CI::PV5",
+  "source_pdf": "/mnt/data/PV5.pdf",
+  "method": "indexed-native-tags / explicitly identified boxes",
+  "pages": [
+    {
+      "page": 1,
+      "native_characters": 3989,
+      "native_text": true
+    },
+    {
+      "page": 2,
+      "native_characters": 4230,
+      "native_text": true
+    },
+    {
+      "page": 3,
+      "native_characters": 3475,
+      "native_text": true
+    },
+    {
+      "page": 4,
+      "native_characters": 3472,
+      "native_text": true
+    },
+    {
+      "page": 5,
+      "native_characters": 3708,
+      "native_text": true
+    },
+    {
+      "page": 6,
+      "native_characters": 3527,
+      "native_text": true
+    },
+    {
+      "page": 7,
+      "native_characters": 3476,
+      "native_text": true
+    },
+    {
+      "page": 8,
+      "native_characters": 3389,
+      "native_text": true
+    },
+    {
+      "page": 9,
+      "native_characters": 3479,
+      "native_text": true
+    },
+    {
+      "page": 10,
+      "native_characters": 3526,
+      "native_text": true
+    },
+    {
+      "page": 11,
+      "native_characters": 3527,
+      "native_text": true
+    },
+    {
+      "page": 12,
+      "native_characters": 3515,
+      "native_text": true
+    },
+    {
+      "page": 13,
+      "native_characters": 3527,
+      "native_text": true
+    },
+    {
+      "page": 14,
+      "native_characters": 3527,
+      "native_text": true
+    }
+  ],
+  "cu_keys": [
+    [
+      "CLT",
+      1
+    ],
+    [
+      "CLT",
+      2
+    ],
+    [
+      "CLT",
+      3
+    ],
+    [
+      "CLT",
+      4
+    ],
+    [
+      "CLT",
+      5
+    ],
+    [
+      "CLT",
+      6
+    ],
+    [
+      "CLT",
+      7
+    ]
+  ],
+  "cus": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "transformers": [
+    {
+      "prefix": "CLT",
+      "CU": 1,
+      "TR": 1,
+      "id": "CLT-TPO-01-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-01-01:xy=(736.93, 757.62)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 1,
+      "TR": 2,
+      "id": "CLT-TPO-01-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-01-02:xy=(736.93, 612.91)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 2,
+      "TR": 1,
+      "id": "CLT-TPO-02-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-02-01:xy=(737.65, 1059.05)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 2,
+      "TR": 2,
+      "id": "CLT-TPO-02-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-02-02:xy=(737.65, 922.50)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 3,
+      "TR": 1,
+      "id": "CLT-TPO-03-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-03-01:xy=(495.02, 758.10)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 3,
+      "TR": 2,
+      "id": "CLT-TPO-03-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-03-02:xy=(495.02, 621.55)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 4,
+      "TR": 1,
+      "id": "CLT-TPO-04-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-04-01:xy=(496.46, 1057.61)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 4,
+      "TR": 2,
+      "id": "CLT-TPO-04-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-04-02:xy=(496.46, 923.46)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 5,
+      "TR": 1,
+      "id": "CLT-TPO-05-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-05-01:xy=(250.95, 552.91)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 5,
+      "TR": 2,
+      "id": "CLT-TPO-05-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-05-02:xy=(250.95, 419.71)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 6,
+      "TR": 1,
+      "id": "CLT-TPO-06-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-06-01:xy=(250.95, 855.06)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 6,
+      "TR": 2,
+      "id": "CLT-TPO-06-02",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-06-02:xy=(250.95, 717.30)"
+    },
+    {
+      "prefix": "CLT",
+      "CU": 7,
+      "TR": 1,
+      "id": "CLT-TPO-07-01",
+      "page": 1,
+      "evidence": "PV5.pdf:p1:CLT-TPO-07-01:xy=(250.95, 1019.93)"
+    }
+  ],
+  "rows": [
+    {
+      "CU": 1,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 16,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-01-01",
+      "tr_id": "CLT-TPO-01-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 16,
+      "box_max_id": 16,
+      "box_missing_ids": [],
+      "page": 2,
+      "inverter_evidence": "PV5.pdf:p2:CLT-INV-01-01:xy=(135.60, 679.55)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-01-01:xy=(736.93, 757.62)",
+      "box_evidence": "PV5.pdf:p2:CLT-CST-01-I01-12-01:xy=(390.52, 1056.49) | PV5.pdf:p2:CLT-CST-01-I01-12-02:xy=(277.00, 1014.97) | PV5.pdf:p2:CLT-CST-01-I01-16-03:xy=(390.28, 969.61) | PV5.pdf:p2:CLT-CST-01-I01-18-04:xy=(276.52, 928.09) | PV5.pdf:p2:CLT-CST-01-I01-20-05:xy=(390.52, 884.65) | PV5.pdf:p2:CLT-CST-01-I01-20-06:xy=(277.25, 843.37) | PV5.pdf:p2:CLT-CST-01-I01-20-07:xy=(390.28, 799.93) | PV5.pdf:p2:CLT-CST-01-I01-12-08:xy=(277.00, 758.42) | PV5.pdf:p2:CLT-CST-01-I01-12-09:xy=(391.00, 714.74) | PV5.pdf:p2:CLT-CST-01-I01-16-10:xy=(277.72, 674.42) | PV5.pdf:p2:CLT-CST-01-I01-16-11:xy=(390.76, 629.77) | PV5.pdf:p2:CLT-CST-01-I01-16-12:xy=(277.72, 587.78) | PV5.pdf:p2:CLT-CST-01-I01-16-13:xy=(391.72, 545.06) | PV5.pdf:p2:CLT-CST-01-I01-16-14:xy=(277.72, 503.06) | PV5.pdf:p2:CLT-CST-01-I01-14-15:xy=(391.72, 460.58) | PV5.pdf:p2:CLT-CST-01-I01-14-16:xy=(277.72, 418.10)"
+    },
+    {
+      "CU": 1,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-01-02",
+      "tr_id": "CLT-TPO-01-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 3,
+      "inverter_evidence": "PV5.pdf:p3:CLT-INV-01-02:xy=(134.40, 709.79)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-01-02:xy=(736.93, 612.91)",
+      "box_evidence": "PV5.pdf:p3:CLT-CST-01-I02-20-01:xy=(389.32, 1055.77) | PV5.pdf:p3:CLT-CST-01-I02-20-02:xy=(276.04, 1013.05) | PV5.pdf:p3:CLT-CST-01-I02-16-03:xy=(389.32, 968.89) | PV5.pdf:p3:CLT-CST-01-I02-16-04:xy=(275.56, 929.29) | PV5.pdf:p3:CLT-CST-01-I02-20-05:xy=(389.56, 883.93) | PV5.pdf:p3:CLT-CST-01-I02-20-06:xy=(276.52, 845.05) | PV5.pdf:p3:CLT-CST-01-I02-20-07:xy=(388.84, 799.21) | PV5.pdf:p3:CLT-CST-01-I02-20-08:xy=(275.56, 760.33) | PV5.pdf:p3:CLT-CST-01-I02-18-09:xy=(389.56, 714.01) | PV5.pdf:p3:CLT-CST-01-I02-16-10:xy=(276.52, 673.94) | PV5.pdf:p3:CLT-CST-01-I02-16-11:xy=(390.04, 629.06) | PV5.pdf:p3:CLT-CST-01-I02-14-12:xy=(276.52, 588.02) | PV5.pdf:p3:CLT-CST-01-I02-12-13:xy=(390.28, 544.33) | PV5.pdf:p3:CLT-CST-01-I02-12-14:xy=(276.52, 504.98) | PV5.pdf:p3:CLT-CST-01-I02-11-15:xy=(390.28, 459.86)"
+    },
+    {
+      "CU": 2,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 14,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-02-01",
+      "tr_id": "CLT-TPO-02-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 14,
+      "box_max_id": 14,
+      "box_missing_ids": [],
+      "page": 4,
+      "inverter_evidence": "PV5.pdf:p4:CLT-INV-02-01:xy=(135.36, 716.51)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-02-01:xy=(737.65, 1059.05)",
+      "box_evidence": "PV5.pdf:p4:CLT-CST-02-I01-16-01:xy=(390.28, 1057.69) | PV5.pdf:p4:CLT-CST-02-I01-18-02:xy=(277.00, 1015.93) | PV5.pdf:p4:CLT-CST-02-I01-20-03:xy=(390.28, 970.57) | PV5.pdf:p4:CLT-CST-02-I01-20-04:xy=(276.28, 929.05) | PV5.pdf:p4:CLT-CST-02-I01-20-05:xy=(390.52, 885.61) | PV5.pdf:p4:CLT-CST-02-I01-20-06:xy=(277.48, 844.33) | PV5.pdf:p4:CLT-CST-02-I01-20-07:xy=(390.04, 800.89) | PV5.pdf:p4:CLT-CST-02-I01-20-08:xy=(276.76, 759.38) | PV5.pdf:p4:CLT-CST-02-I01-20-09:xy=(390.76, 715.70) | PV5.pdf:p4:CLT-CST-02-I01-14-10:xy=(277.72, 675.38) | PV5.pdf:p4:CLT-CST-02-I01-14-11:xy=(391.00, 630.74) | PV5.pdf:p4:CLT-CST-02-I01-16-12:xy=(277.72, 588.74) | PV5.pdf:p4:CLT-CST-02-I01-16-13:xy=(391.24, 546.01) | PV5.pdf:p4:CLT-CST-02-I01-20-14:xy=(277.72, 504.02)"
+    },
+    {
+      "CU": 2,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 14,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-02-02",
+      "tr_id": "CLT-TPO-02-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 14,
+      "box_max_id": 14,
+      "box_missing_ids": [],
+      "page": 5,
+      "inverter_evidence": "PV5.pdf:p5:CLT-INV-02-02:xy=(137.28, 708.83)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-02-02:xy=(737.65, 922.50)",
+      "box_evidence": "PV5.pdf:p5:CLT-CST-02-I02-18-01:xy=(392.20, 1054.81) | PV5.pdf:p5:CLT-CST-02-I02-18-02:xy=(278.92, 1013.05) | PV5.pdf:p5:CLT-CST-02-I02-16-03:xy=(392.20, 967.93) | PV5.pdf:p5:CLT-CST-02-I02-14-04:xy=(278.44, 926.41) | PV5.pdf:p5:CLT-CST-02-I02-12-05:xy=(392.44, 882.97) | PV5.pdf:p5:CLT-CST-02-I02-20-06:xy=(279.40, 841.69) | PV5.pdf:p5:CLT-CST-02-I02-20-07:xy=(391.72, 798.25) | PV5.pdf:p5:CLT-CST-02-I02-20-08:xy=(278.68, 756.74) | PV5.pdf:p5:CLT-CST-02-I02-20-09:xy=(392.44, 713.05) | PV5.pdf:p5:CLT-CST-02-I02-20-10:xy=(279.40, 672.50) | PV5.pdf:p5:CLT-CST-02-I02-20-11:xy=(392.92, 628.10) | PV5.pdf:p5:CLT-CST-02-I02-20-12:xy=(279.40, 586.10) | PV5.pdf:p5:CLT-CST-02-I02-20-13:xy=(393.16, 543.37) | PV5.pdf:p5:CLT-CST-02-I02-16-14:xy=(279.40, 501.38)"
+    },
+    {
+      "CU": 3,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-03-01",
+      "tr_id": "CLT-TPO-03-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 6,
+      "inverter_evidence": "PV5.pdf:p6:CLT-INV-03-01:xy=(135.84, 679.31)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-03-01:xy=(495.02, 758.10)",
+      "box_evidence": "PV5.pdf:p6:CLT-CST-03-I01-12-01:xy=(390.76, 1056.25) | PV5.pdf:p6:CLT-CST-03-I01-12-02:xy=(277.24, 1014.73) | PV5.pdf:p6:CLT-CST-03-I01-12-03:xy=(390.52, 969.37) | PV5.pdf:p6:CLT-CST-03-I01-16-04:xy=(277.00, 927.85) | PV5.pdf:p6:CLT-CST-03-I01-16-05:xy=(390.76, 884.41) | PV5.pdf:p6:CLT-CST-03-I01-20-06:xy=(277.72, 843.13) | PV5.pdf:p6:CLT-CST-03-I01-20-07:xy=(390.52, 799.69) | PV5.pdf:p6:CLT-CST-03-I01-20-08:xy=(277.24, 758.18) | PV5.pdf:p6:CLT-CST-03-I01-20-09:xy=(391.24, 714.50) | PV5.pdf:p6:CLT-CST-03-I01-20-10:xy=(277.73, 674.17) | PV5.pdf:p6:CLT-CST-03-I01-20-11:xy=(391.00, 629.53) | PV5.pdf:p6:CLT-CST-03-I01-20-12:xy=(277.73, 587.53) | PV5.pdf:p6:CLT-CST-03-I01-20-13:xy=(391.96, 544.82) | PV5.pdf:p6:CLT-CST-03-I01-12-14:xy=(277.73, 502.82) | PV5.pdf:p6:CLT-CST-03-I01-14-15:xy=(391.96, 460.34)"
+    },
+    {
+      "CU": 3,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 14,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-03-02",
+      "tr_id": "CLT-TPO-03-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 14,
+      "box_max_id": 14,
+      "box_missing_ids": [],
+      "page": 7,
+      "inverter_evidence": "PV5.pdf:p7:CLT-INV-03-02:xy=(134.88, 709.55)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-03-02:xy=(495.02, 621.55)",
+      "box_evidence": "PV5.pdf:p7:CLT-CST-03-I02-20-01:xy=(389.56, 1055.53) | PV5.pdf:p7:CLT-CST-03-I02-16-02:xy=(276.52, 1013.77) | PV5.pdf:p7:CLT-CST-03-I02-12-03:xy=(389.80, 968.65) | PV5.pdf:p7:CLT-CST-03-I02-20-04:xy=(276.04, 927.13) | PV5.pdf:p7:CLT-CST-03-I02-20-05:xy=(390.04, 883.69) | PV5.pdf:p7:CLT-CST-03-I02-20-06:xy=(276.76, 842.17) | PV5.pdf:p7:CLT-CST-03-I02-20-07:xy=(389.56, 798.97) | PV5.pdf:p7:CLT-CST-03-I02-20-08:xy=(276.05, 757.45) | PV5.pdf:p7:CLT-CST-03-I02-20-09:xy=(390.04, 713.77) | PV5.pdf:p7:CLT-CST-03-I02-20-10:xy=(276.76, 673.21) | PV5.pdf:p7:CLT-CST-03-I02-18-11:xy=(390.28, 628.82) | PV5.pdf:p7:CLT-CST-03-I02-16-12:xy=(276.77, 586.81) | PV5.pdf:p7:CLT-CST-03-I02-16-13:xy=(391.00, 544.10) | PV5.pdf:p7:CLT-CST-03-I02-16-14:xy=(276.77, 502.10)"
+    },
+    {
+      "CU": 4,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 11,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-04-01",
+      "tr_id": "CLT-TPO-04-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 11,
+      "box_max_id": 11,
+      "box_missing_ids": [],
+      "page": 8,
+      "inverter_evidence": "PV5.pdf:p8:CLT-INV-04-01:xy=(114.48, 677.63)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-04-01:xy=(496.46, 1057.61)",
+      "box_evidence": "PV5.pdf:p8:CLT-CST-04-I01-12-01:xy=(369.64, 955.21) | PV5.pdf:p8:CLT-CST-04-I01-16-02:xy=(255.88, 913.45) | PV5.pdf:p8:CLT-CST-04-I01-16-03:xy=(369.40, 868.09) | PV5.pdf:p8:CLT-CST-04-I01-16-04:xy=(255.65, 826.81) | PV5.pdf:p8:CLT-CST-04-I01-16-05:xy=(369.41, 783.85) | PV5.pdf:p8:CLT-CST-04-I01-16-06:xy=(256.36, 741.85) | PV5.pdf:p8:CLT-CST-04-I01-20-07:xy=(369.40, 698.66) | PV5.pdf:p8:CLT-CST-04-I01-20-08:xy=(256.13, 657.14) | PV5.pdf:p8:CLT-CST-04-I01-12-09:xy=(370.12, 613.46) | PV5.pdf:p8:CLT-CST-04-I01-12-10:xy=(256.85, 572.90) | PV5.pdf:p8:CLT-CST-04-I01-11-11:xy=(369.89, 528.49)"
+    },
+    {
+      "CU": 4,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-04-02",
+      "tr_id": "CLT-TPO-04-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 9,
+      "inverter_evidence": "PV5.pdf:p9:CLT-INV-04-02:xy=(134.16, 707.63)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-04-02:xy=(496.46, 923.46)",
+      "box_evidence": "PV5.pdf:p9:CLT-CST-04-I02-14-01:xy=(389.08, 1054.81) | PV5.pdf:p9:CLT-CST-04-I02-16-02:xy=(275.56, 1013.05) | PV5.pdf:p9:CLT-CST-04-I02-20-03:xy=(388.84, 967.69) | PV5.pdf:p9:CLT-CST-04-I02-20-04:xy=(275.32, 926.41) | PV5.pdf:p9:CLT-CST-04-I02-20-05:xy=(389.08, 882.97) | PV5.pdf:p9:CLT-CST-04-I02-20-06:xy=(276.04, 841.45) | PV5.pdf:p9:CLT-CST-04-I02-12-07:xy=(388.84, 798.25) | PV5.pdf:p9:CLT-CST-04-I02-12-08:xy=(275.56, 756.74) | PV5.pdf:p9:CLT-CST-04-I02-12-09:xy=(389.56, 713.06) | PV5.pdf:p9:CLT-CST-04-I02-12-10:xy=(276.04, 672.49) | PV5.pdf:p9:CLT-CST-04-I02-20-11:xy=(389.32, 628.09) | PV5.pdf:p9:CLT-CST-04-I02-16-12:xy=(276.05, 586.09) | PV5.pdf:p9:CLT-CST-04-I02-20-13:xy=(390.28, 543.38) | PV5.pdf:p9:CLT-CST-04-I02-20-14:xy=(276.05, 501.38) | PV5.pdf:p9:CLT-CST-04-I02-20-15:xy=(390.28, 458.90)"
+    },
+    {
+      "CU": 5,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-05-01",
+      "tr_id": "CLT-TPO-05-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 10,
+      "inverter_evidence": "PV5.pdf:p10:CLT-INV-05-01:xy=(136.56, 688.19)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-05-01:xy=(250.95, 552.91)",
+      "box_evidence": "PV5.pdf:p10:CLT-CST-05-I01-16-01:xy=(391.48, 1050.73) | PV5.pdf:p10:CLT-CST-05-I01-16-02:xy=(278.20, 1008.97) | PV5.pdf:p10:CLT-CST-05-I01-20-03:xy=(391.48, 963.61) | PV5.pdf:p10:CLT-CST-05-I01-20-04:xy=(277.72, 922.09) | PV5.pdf:p10:CLT-CST-05-I01-20-05:xy=(391.72, 878.65) | PV5.pdf:p10:CLT-CST-05-I01-20-06:xy=(278.68, 837.37) | PV5.pdf:p10:CLT-CST-05-I01-20-07:xy=(391.00, 793.93) | PV5.pdf:p10:CLT-CST-05-I01-20-08:xy=(277.96, 752.42) | PV5.pdf:p10:CLT-CST-05-I01-12-09:xy=(391.96, 708.74) | PV5.pdf:p10:CLT-CST-05-I01-16-10:xy=(278.68, 668.42) | PV5.pdf:p10:CLT-CST-05-I01-16-11:xy=(392.20, 623.78) | PV5.pdf:p10:CLT-CST-05-I01-16-12:xy=(278.68, 581.78) | PV5.pdf:p10:CLT-CST-05-I01-20-13:xy=(392.44, 539.05) | PV5.pdf:p10:CLT-CST-05-I01-10-14:xy=(278.68, 497.06) | PV5.pdf:p10:CLT-CST-05-I01-12-15:xy=(392.44, 454.58)"
+    },
+    {
+      "CU": 5,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-05-02",
+      "tr_id": "CLT-TPO-05-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 11,
+      "inverter_evidence": "PV5.pdf:p11:CLT-INV-05-02:xy=(133.92, 707.87)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-05-02:xy=(250.95, 419.71)",
+      "box_evidence": "PV5.pdf:p11:CLT-CST-05-I02-12-01:xy=(389.08, 1055.05) | PV5.pdf:p11:CLT-CST-05-I02-12-02:xy=(275.33, 1013.53) | PV5.pdf:p11:CLT-CST-05-I02-20-03:xy=(388.60, 968.17) | PV5.pdf:p11:CLT-CST-05-I02-20-04:xy=(274.84, 926.65) | PV5.pdf:p11:CLT-CST-05-I02-20-05:xy=(388.84, 883.21) | PV5.pdf:p11:CLT-CST-05-I02-20-06:xy=(276.04, 841.93) | PV5.pdf:p11:CLT-CST-05-I02-20-07:xy=(388.60, 798.49) | PV5.pdf:p11:CLT-CST-05-I02-16-08:xy=(275.56, 756.98) | PV5.pdf:p11:CLT-CST-05-I02-16-09:xy=(389.56, 713.30) | PV5.pdf:p11:CLT-CST-05-I02-20-10:xy=(276.28, 672.98) | PV5.pdf:p11:CLT-CST-05-I02-20-11:xy=(389.56, 628.34) | PV5.pdf:p11:CLT-CST-05-I02-16-12:xy=(276.28, 586.34) | PV5.pdf:p11:CLT-CST-05-I02-16-13:xy=(390.04, 543.62) | PV5.pdf:p11:CLT-CST-05-I02-14-14:xy=(276.28, 501.62) | PV5.pdf:p11:CLT-CST-05-I02-12-15:xy=(390.04, 459.14)"
+    },
+    {
+      "CU": 6,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-06-01",
+      "tr_id": "CLT-TPO-06-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 12,
+      "inverter_evidence": "PV5.pdf:p12:CLT-INV-06-01:xy=(134.40, 692.51)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-06-01:xy=(250.95, 855.06)",
+      "box_evidence": "PV5.pdf:p12:CLT-CST-06-I01-16-01:xy=(389.56, 1056.01) | PV5.pdf:p12:CLT-CST-06-I01-18-02:xy=(275.80, 1014.25) | PV5.pdf:p12:CLT-CST-06-I01-18-03:xy=(389.08, 968.89) | PV5.pdf:p12:CLT-CST-06-I01-16-04:xy=(275.33, 927.61) | PV5.pdf:p12:CLT-CST-06-I01-16-05:xy=(389.32, 884.17) | PV5.pdf:p12:CLT-CST-06-I01-20-06:xy=(276.28, 842.65) | PV5.pdf:p12:CLT-CST-06-I01-20-07:xy=(389.32, 799.21) | PV5.pdf:p12:CLT-CST-06-I01-16-08:xy=(276.04, 757.70) | PV5.pdf:p12:CLT-CST-06-I01-16-09:xy=(390.04, 714.02) | PV5.pdf:p12:CLT-CST-06-I01-20-10:xy=(276.76, 673.70) | PV5.pdf:p12:CLT-CST-06-I01-20-11:xy=(390.04, 629.06) | PV5.pdf:p12:CLT-CST-06-I01-12-12:xy=(276.76, 587.06) | PV5.pdf:p12:CLT-CST-06-I01-12-13:xy=(390.52, 544.58) | PV5.pdf:p12:CLT-CST-06-I01-16-14:xy=(276.76, 502.34) | PV5.pdf:p12:CLT-CST-06-I01-18-15:xy=(390.52, 459.86)"
+    },
+    {
+      "CU": 6,
+      "TR": 2,
+      "INV": 1,
+      "STR_Box": 15,
+      "prefix": "CLT",
+      "printed_inv_slot": 2,
+      "inv_id": "CLT-INV-06-02",
+      "tr_id": "CLT-TPO-06-02",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_COMPLETA_1_N",
+      "box_ids_observed": 15,
+      "box_max_id": 15,
+      "box_missing_ids": [],
+      "page": 13,
+      "inverter_evidence": "PV5.pdf:p13:CLT-INV-06-02:xy=(129.84, 702.59)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-06-02:xy=(250.95, 717.30)",
+      "box_evidence": "PV5.pdf:p13:CLT-CST-06-I02-16-01:xy=(384.52, 1049.77) | PV5.pdf:p13:CLT-CST-06-I02-16-02:xy=(271.48, 1008.01) | PV5.pdf:p13:CLT-CST-06-I02-16-03:xy=(384.76, 962.89) | PV5.pdf:p13:CLT-CST-06-I02-12-04:xy=(271.00, 921.37) | PV5.pdf:p13:CLT-CST-06-I02-12-05:xy=(385.00, 877.93) | PV5.pdf:p13:CLT-CST-06-I02-20-06:xy=(271.96, 836.65) | PV5.pdf:p13:CLT-CST-06-I02-20-07:xy=(384.29, 793.21) | PV5.pdf:p13:CLT-CST-06-I02-16-08:xy=(271.01, 751.69) | PV5.pdf:p13:CLT-CST-06-I02-16-09:xy=(385.00, 708.01) | PV5.pdf:p13:CLT-CST-06-I02-20-10:xy=(271.96, 667.46) | PV5.pdf:p13:CLT-CST-06-I02-20-11:xy=(385.48, 623.06) | PV5.pdf:p13:CLT-CST-06-I02-20-12:xy=(271.96, 581.06) | PV5.pdf:p13:CLT-CST-06-I02-20-13:xy=(385.72, 538.33) | PV5.pdf:p13:CLT-CST-06-I02-12-14:xy=(271.96, 496.34) | PV5.pdf:p13:CLT-CST-06-I02-18-15:xy=(385.72, 453.86)"
+    },
+    {
+      "CU": 7,
+      "TR": 1,
+      "INV": 1,
+      "STR_Box": null,
+      "prefix": "CLT",
+      "printed_inv_slot": 1,
+      "inv_id": "CLT-INV-07-01",
+      "tr_id": "CLT-TPO-07-01",
+      "parent_status": "CANDIDATO_PER_CODIFICA",
+      "sb_status": "SEQUENZA_BOX_INCOMPLETA",
+      "box_ids_observed": 14,
+      "box_max_id": 15,
+      "box_missing_ids": [
+        2
+      ],
+      "page": 14,
+      "inverter_evidence": "PV5.pdf:p14:CLT-INV-07-01:xy=(118.08, 661.55)",
+      "transformer_evidence": "PV5.pdf:p1:CLT-TPO-07-01:xy=(250.95, 1019.93)",
+      "box_evidence": "PV5.pdf:p14:CLT-CST-07-I01-12-01:xy=(373.24, 1039.69) | PV5.pdf:p14:CLT-CST-07-I01-16-03:xy=(373.00, 952.57) | PV5.pdf:p14:CLT-CST-07-I01-16-04:xy=(259.25, 911.29) | PV5.pdf:p14:CLT-CST-07-I01-16-05:xy=(373.00, 867.61) | PV5.pdf:p14:CLT-CST-07-I01-12-06:xy=(259.97, 826.33) | PV5.pdf:p14:CLT-CST-07-I01-20-07:xy=(373.00, 782.89) | PV5.pdf:p14:CLT-CST-07-I01-20-08:xy=(259.73, 741.38) | PV5.pdf:p14:CLT-CST-07-I01-20-09:xy=(373.72, 697.70) | PV5.pdf:p14:CLT-CST-07-I01-20-10:xy=(260.45, 657.38) | PV5.pdf:p14:CLT-CST-07-I01-20-11:xy=(373.48, 612.73) | PV5.pdf:p14:CLT-CST-07-I01-20-12:xy=(260.45, 570.74) | PV5.pdf:p14:CLT-CST-07-I01-16-13:xy=(374.44, 528.26) | PV5.pdf:p14:CLT-CST-07-I01-16-14:xy=(260.45, 486.02) | PV5.pdf:p14:CLT-CST-07-I01-18-15:xy=(374.44, 443.54)"
+    }
+  ],
+  "issues": [
+    {
+      "code": "BOX_SERIAL_GAP",
+      "inverter": "CLT-INV-07-01",
+      "missing_serials": [
+        2
+      ],
+      "candidate_max": 15
+    }
+  ],
+  "summary": {
+    "cu": 7,
+    "tr_candidate": 13,
+    "inverters": 13,
+    "box_quantities_complete": 12,
+    "box_quantities_unresolved": 1,
+    "box_quantity_total_complete_only": 174,
+    "parent_candidates": 13,
+    "parent_confirmed": 0,
+    "issue_count": 1
+  },
+  "matrix_flow_import_ready": false,
+  "electrical_connections_verified": 0,
+  "validation_status": "NOT_INDEPENDENTLY_VALIDATED"
+}

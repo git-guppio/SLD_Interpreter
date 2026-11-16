@@ -1,0 +1,121 @@
+{
+  "schema": "sld-alpha6-local-validation/v1",
+  "status": "DEVELOPMENT_VALIDATION_NOT_ELECTRICAL_CERTIFICATION",
+  "cases": [
+    {
+      "case": "CASE_001_JAGUITO_DOCUMENT_A",
+      "pages": 1,
+      "native_tag_occurrences": 0,
+      "unverified_tag_groups": 0,
+      "repeated_mentions": 0,
+      "vector_review_regions_sampled": 0,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_001_JAGUITO_DOCUMENT_B",
+      "pages": 1,
+      "native_tag_occurrences": 0,
+      "unverified_tag_groups": 0,
+      "repeated_mentions": 0,
+      "vector_review_regions_sampled": 0,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_002_PV2",
+      "pages": 5,
+      "native_tag_occurrences": 0,
+      "unverified_tag_groups": 0,
+      "repeated_mentions": 0,
+      "vector_review_regions_sampled": 0,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_003_PV3",
+      "pages": 1,
+      "native_tag_occurrences": 0,
+      "unverified_tag_groups": 0,
+      "repeated_mentions": 0,
+      "vector_review_regions_sampled": 0,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_004_PV4",
+      "pages": 71,
+      "native_tag_occurrences": 1364,
+      "unverified_tag_groups": 169,
+      "repeated_mentions": 1195,
+      "vector_review_regions_sampled": 1,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_005_PV5",
+      "pages": 14,
+      "native_tag_occurrences": 222,
+      "unverified_tag_groups": 221,
+      "repeated_mentions": 1,
+      "vector_review_regions_sampled": 1,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_006_PV6",
+      "pages": 4,
+      "native_tag_occurrences": 43,
+      "unverified_tag_groups": 43,
+      "repeated_mentions": 0,
+      "vector_review_regions_sampled": 1,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_007_PV7",
+      "pages": 3,
+      "native_tag_occurrences": 31,
+      "unverified_tag_groups": 30,
+      "repeated_mentions": 1,
+      "vector_review_regions_sampled": 1,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    },
+    {
+      "case": "CASE_008_PV8",
+      "pages": 56,
+      "native_tag_occurrences": 1540,
+      "unverified_tag_groups": 220,
+      "repeated_mentions": 1320,
+      "vector_review_regions_sampled": 1,
+      "roi_safety_caps": 0,
+      "tag_precision_recall": "UNAVAILABLE_NO_INSTANCE_ANNOTATIONS",
+      "physical_asset_precision_recall": "UNAVAILABLE_NO_ANNOTATED_PHYSICAL_INSTANCES"
+    }
+  ],
+  "PV4_dense_roi_test": {
+    "source": "PV4.pdf original, page subset 1..10",
+    "geometry_probe_pages": 3,
+    "review_regions": 9,
+    "roi_caps": 0,
+    "note": "Large page with 208825 and 202133 drawings processed without page-wide cap; not the user local 5-page PV4_SLD.pdf"
+  },
+  "unit_tests": {
+    "beta3": 114,
+    "frozen_dev14c": 49,
+    "total": 163
+  },
+  "evaluation": {
+    "physical_asset_precision_recall": null,
+    "graph_verified_connections": 0
+  }
+}

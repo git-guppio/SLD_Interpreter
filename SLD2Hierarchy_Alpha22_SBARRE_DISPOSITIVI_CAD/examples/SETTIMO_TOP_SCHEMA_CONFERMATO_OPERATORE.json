@@ -1,0 +1,30 @@
+{
+  "schema": "sld-alpha21-cad-operator-topology/v1",
+  "plant_id": "CI::PV13_Settimo_Torinese",
+  "source_pdf_sha256": "638ef57a96edd945d3b8d1b2d64af5a2c7c75919b1a47be166e506c978f5a33a",
+  "qps_semantic_class": "STRING_BOX",
+  "qps_is_parallel_string_cabinet": true,
+  "qps_group_denotes_inverter_number": true,
+  "operator_confirmed": true,
+  "operator_evidence": "Conferma tecnica operatore del 2026-11-11: 1 CU, 1 TR, 3 inverter in parallelo; QPS-n-k/8 e String Box dell inverter n. PDF p1",
+  "parent_confirmations": [
+    {
+      "qps_group": 1,
+      "CU": 1,
+      "TR": 1,
+      "INV": 1
+    },
+    {
+      "qps_group": 2,
+      "CU": 1,
+      "TR": 1,
+      "INV": 2
+    },
+    {
+      "qps_group": 3,
+      "CU": 1,
+      "TR": 1,
+      "INV": 3
+    }
+  ]
+}

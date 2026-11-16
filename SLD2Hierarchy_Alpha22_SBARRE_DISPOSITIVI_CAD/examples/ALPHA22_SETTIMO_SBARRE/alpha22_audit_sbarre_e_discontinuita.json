@@ -1,0 +1,237 @@
+{
+  "schema": "sld-alpha22-cad-bus-evidence/v1",
+  "source_pdf": "/mnt/data/PV13_Settimo_Torinese.pdf",
+  "source_pdf_sha256": "638ef57a96edd945d3b8d1b2d64af5a2c7c75919b1a47be166e506c978f5a33a",
+  "source_ground_truth_used": false,
+  "text_inference_from_plant_filename": false,
+  "electrical_continuity_not_inferred_across_gaps": true,
+  "pages": [
+    {
+      "page": 1,
+      "busbar_evidence": {
+        "status": "ONE_SOURCE_BUSBAR_WITH_UNBRIDGED_DEVICE_GAPS",
+        "bus": {
+          "source_stroke_index": 94,
+          "bbox_px": [
+            485.269,
+            242.373,
+            531.881,
+            242.373
+          ],
+          "source_length_px": 46.612,
+          "members": [
+            {
+              "converter_candidate_id": "INV_GRAFICO_001",
+              "upstream_open_terminal_px": [
+                485.234,
+                256.119
+              ],
+              "distance_bus_to_open_terminal_px": 13.746,
+              "gap_unbridged": true,
+              "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+            },
+            {
+              "converter_candidate_id": "INV_GRAFICO_002",
+              "upstream_open_terminal_px": [
+                508.558,
+                256.119
+              ],
+              "distance_bus_to_open_terminal_px": 13.746,
+              "gap_unbridged": true,
+              "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+            },
+            {
+              "converter_candidate_id": "INV_GRAFICO_003",
+              "upstream_open_terminal_px": [
+                531.881,
+                256.119
+              ],
+              "distance_bus_to_open_terminal_px": 13.746,
+              "gap_unbridged": true,
+              "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+            }
+          ],
+          "covers_all_inputs": true,
+          "members_count": 3
+        },
+        "candidate_buses": [
+          {
+            "source_stroke_index": 94,
+            "bbox_px": [
+              485.269,
+              242.373,
+              531.881,
+              242.373
+            ],
+            "source_length_px": 46.612,
+            "members": [
+              {
+                "converter_candidate_id": "INV_GRAFICO_001",
+                "upstream_open_terminal_px": [
+                  485.234,
+                  256.119
+                ],
+                "distance_bus_to_open_terminal_px": 13.746,
+                "gap_unbridged": true,
+                "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+              },
+              {
+                "converter_candidate_id": "INV_GRAFICO_002",
+                "upstream_open_terminal_px": [
+                  508.558,
+                  256.119
+                ],
+                "distance_bus_to_open_terminal_px": 13.746,
+                "gap_unbridged": true,
+                "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+              },
+              {
+                "converter_candidate_id": "INV_GRAFICO_003",
+                "upstream_open_terminal_px": [
+                  531.881,
+                  256.119
+                ],
+                "distance_bus_to_open_terminal_px": 13.746,
+                "gap_unbridged": true,
+                "source_input_run_status": "SOLID_CONDUCTOR_TO_OPEN_UPSTREAM_TERMINAL"
+              }
+            ],
+            "covers_all_inputs": true,
+            "members_count": 3
+          }
+        ],
+        "lead_count": 3,
+        "electrical_path_verified": false
+      },
+      "winding_evidence": {
+        "status": "ONE_WINDING_PAIR_AND_SECONDARY_WIRE_WITH_UNBRIDGED_GAP",
+        "transformer": {
+          "winding_pair_source_paths": [
+            10573,
+            10575
+          ],
+          "winding_pair_center_px": [
+            508.56,
+            180.2
+          ],
+          "secondary_source_stroke_index": 88,
+          "secondary_source_stroke_bbox_px": [
+            508.558,
+            191.988,
+            508.558,
+            229.946
+          ],
+          "secondary_wire_to_bus_gap_px": 12.427,
+          "classification": "WINDING_PAIR_PLUS_SECONDARY_SOURCE_WIRE_WITH_DEVICE_GAP"
+        },
+        "electrical_path_verified": false
+      },
+      "converter_with_source_lead_and_bus_candidate": [
+        "INV_GRAFICO_001",
+        "INV_GRAFICO_002",
+        "INV_GRAFICO_003"
+      ],
+      "transformer_parentage_claimed": false,
+      "structural_evidence_status": "VECTOR_BUS_AND_TR_WIRE_WITH_UNVERIFIED_INTERRUPTING_DEVICES",
+      "tr_inverter_automatically_verified": 0,
+      "bridges_through_switches_or_transformer_created": 0,
+      "source_ground_truth_used": false,
+      "source_series_device_visual_motifs": [
+        {
+          "gap_type": "TR_SECONDARY_TO_BUSBAR",
+          "downstream_entity": "TR_WINDING_CANDIDATE",
+          "outline_source_path_index": 10688,
+          "contact_source_path_indices": [
+            10682,
+            10683,
+            10684,
+            10686,
+            10687
+          ],
+          "symbol_bbox_px": [
+            507.489,
+            236.07,
+            509.626,
+            239.454
+          ],
+          "status": "IN_LINE_DEVICE_LIKE_SYMBOL_SOURCE_OBSERVED_UNCLASSIFIED",
+          "device_type_classified": false,
+          "device_edge_created": false
+        },
+        {
+          "gap_type": "BUSBAR_TO_INVERTER",
+          "downstream_entity": "INV_GRAFICO_001",
+          "outline_source_path_index": 10723,
+          "contact_source_path_indices": [
+            10717,
+            10718,
+            10719,
+            10721,
+            10722
+          ],
+          "symbol_bbox_px": [
+            484.201,
+            249.246,
+            486.302,
+            252.629
+          ],
+          "status": "IN_LINE_DEVICE_LIKE_SYMBOL_SOURCE_OBSERVED_UNCLASSIFIED",
+          "device_type_classified": false,
+          "device_edge_created": false
+        },
+        {
+          "gap_type": "BUSBAR_TO_INVERTER",
+          "downstream_entity": "INV_GRAFICO_002",
+          "outline_source_path_index": 10704,
+          "contact_source_path_indices": [
+            10698,
+            10699,
+            10700,
+            10702,
+            10703
+          ],
+          "symbol_bbox_px": [
+            507.525,
+            249.246,
+            509.626,
+            252.629
+          ],
+          "status": "IN_LINE_DEVICE_LIKE_SYMBOL_SOURCE_OBSERVED_UNCLASSIFIED",
+          "device_type_classified": false,
+          "device_edge_created": false
+        },
+        {
+          "gap_type": "BUSBAR_TO_INVERTER",
+          "downstream_entity": "INV_GRAFICO_003",
+          "outline_source_path_index": 10785,
+          "contact_source_path_indices": [
+            10779,
+            10780,
+            10781,
+            10783,
+            10784
+          ],
+          "symbol_bbox_px": [
+            530.848,
+            249.246,
+            532.949,
+            252.629
+          ],
+          "status": "IN_LINE_DEVICE_LIKE_SYMBOL_SOURCE_OBSERVED_UNCLASSIFIED",
+          "device_type_classified": false,
+          "device_edge_created": false
+        }
+      ],
+      "device_edges_automatically_created": 0
+    }
+  ],
+  "summary": {
+    "pages_examined": 1,
+    "page_bus_candidates_source_supported": 1,
+    "converter_leads_aligned_to_common_bus": 3,
+    "page_windings_with_source_secondary_wire": 1,
+    "source_inline_device_like_motifs_unclassified": 4,
+    "tr_inverter_automatically_electrically_verified": 0,
+    "matrix_flow_import_ready": false
+  }
+}

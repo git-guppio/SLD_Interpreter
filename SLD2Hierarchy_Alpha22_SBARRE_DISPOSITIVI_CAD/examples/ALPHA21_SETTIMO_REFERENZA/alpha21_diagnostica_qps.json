@@ -1,0 +1,126 @@
+{
+  "schema": "sld-alpha21-qps-source-evidence/v1",
+  "plant_id": "CI::PV13_Settimo_Torinese",
+  "source_pdf": "/mnt/data/PV13_Settimo_Torinese.pdf",
+  "source_pdf_sha256": "638ef57a96edd945d3b8d1b2d64af5a2c7c75919b1a47be166e506c978f5a33a",
+  "summary": {
+    "converter_candidates": 3,
+    "qps_groups_complete": 3,
+    "qps_documented_total": 24,
+    "string_boxes_operator_semantics_resolved": 24,
+    "tr_inverter_automatic_electrical_links_verified": 0,
+    "operator_confirmed_parent_links": 3,
+    "matrix_flow_import_ready": false,
+    "ground_truth_used_for_inference": false
+  },
+  "qps_sequences": [
+    {
+      "page": 1,
+      "qps_group": 1,
+      "field_candidate": 1,
+      "converter_candidate_id": "INV_GRAFICO_001",
+      "qps_documented": 8,
+      "sequence_complete": true,
+      "evidence": "OCR_QPS_ORDINALS_PLUS_INDEPENDENT_CAD_DC_GEOMETRY",
+      "qps_labels": [
+        "QPS-1-1/8",
+        "QPS-1-3/8",
+        "QPS-1-5/8",
+        "QPS-1-7/8",
+        "QPS-1-2/8",
+        "QPS-1-4/8",
+        "QPS-1-6/8",
+        "QPS-1-8/8"
+      ],
+      "qps_prefixes_exact": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "graphical_candidate_count": 8,
+      "unresolved_reasons": [],
+      "status": "QPS_DOCUMENTED_PARENT_UNVERIFIED",
+      "string_box_quantity": 8,
+      "parent_status": "CONFERMATO_DA_OPERATORE_NON_VERIFICA_ELETTRICA",
+      "semantic_status": "QPS_EQUIVALENTE_STRING_BOX_CONFERMATO_OPERATORE"
+    },
+    {
+      "page": 1,
+      "qps_group": 2,
+      "field_candidate": 2,
+      "converter_candidate_id": "INV_GRAFICO_002",
+      "qps_documented": 8,
+      "sequence_complete": true,
+      "evidence": "OCR_QPS_ORDINALS_PLUS_INDEPENDENT_CAD_DC_GEOMETRY",
+      "qps_labels": [
+        "QPS-2-1/8",
+        "QPS-2-3/8",
+        "QPS-2-5/8",
+        "QPS-2-7/8",
+        "QPS-2-2/8",
+        "QPS-2-4/8",
+        "QPS-2-6/8",
+        "QPS-2-8/8"
+      ],
+      "qps_prefixes_exact": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "graphical_candidate_count": 8,
+      "unresolved_reasons": [],
+      "status": "QPS_DOCUMENTED_PARENT_UNVERIFIED",
+      "string_box_quantity": 8,
+      "parent_status": "CONFERMATO_DA_OPERATORE_NON_VERIFICA_ELETTRICA",
+      "semantic_status": "QPS_EQUIVALENTE_STRING_BOX_CONFERMATO_OPERATORE"
+    },
+    {
+      "page": 1,
+      "qps_group": 3,
+      "field_candidate": 3,
+      "converter_candidate_id": "INV_GRAFICO_003",
+      "qps_documented": 8,
+      "sequence_complete": true,
+      "evidence": "OCR_QPS_ORDINALS_PLUS_INDEPENDENT_CAD_DC_GEOMETRY",
+      "qps_labels": [
+        "QPS-3-1/8",
+        "QPS-3-3/8",
+        "QPS-3-5/8",
+        "QPS-3-7/8",
+        "QPS-3-2/8",
+        "QPS-3-4/8",
+        "QPS-3-6/8",
+        "QPS-3-8/8"
+      ],
+      "qps_prefixes_exact": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "graphical_candidate_count": 8,
+      "unresolved_reasons": [],
+      "status": "QPS_DOCUMENTED_PARENT_UNVERIFIED",
+      "string_box_quantity": 8,
+      "parent_status": "CONFERMATO_DA_OPERATORE_NON_VERIFICA_ELETTRICA",
+      "semantic_status": "QPS_EQUIVALENTE_STRING_BOX_CONFERMATO_OPERATORE"
+    }
+  ],
+  "operator_review_applied": true,
+  "review_source": "Conferma tecnica operatore del 2026-11-11: 1 CU, 1 TR, 3 inverter in parallelo; QPS-n-k/8 e String Box dell inverter n. PDF p1",
+  "note": "La quantita deriva da etichette QPS rilevate in PDF e cabinet CAD. Il significato QPS=String Box, la numerazione e CU/TR sono confermati dall operatore, NON da continuita elettrica verificata automaticamente."
+}

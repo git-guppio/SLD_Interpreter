@@ -1,0 +1,10 @@
+pymupdf>=1.24
+networkx>=3.0
+# Dependencies imported by the frozen dev14c native-text semantic detector.
+numpy>=1.24
+opencv-python>=4.8
+pytesseract>=0.3.10
+# OCR engine executable is not required for the native-text-only Bootstrap 5 CLI.
+
+# Alpha17/18 vector previews and color-topology candidates.
+Pillow>=9.5

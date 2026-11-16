@@ -1,0 +1,796 @@
+{
+  "schema": "sld-beta3-integrated-case/v1",
+  "status": "COMPLETE_INTEGRATION_DIAGNOSTIC",
+  "plant_id": "CI::PV6",
+  "input_files": {
+    "sld": "PV6.pdf",
+    "layout": null
+  },
+  "ground_truth_used": false,
+  "expected_counts_used": false,
+  "inference_modified_by_beta3": false,
+  "dev14c_modified": false,
+  "legacy_inference": {
+    "plant_id": "CI::PV6",
+    "target_counts": {
+      "conversion_units": 2,
+      "iocb": 0,
+      "mv_lv_transformers": 3,
+      "inverters": 3,
+      "lv_lv_transformers": 0,
+      "string_boxes": 35,
+      "unresolved_membership": 0,
+      "count_policy": "RESOLVED_HIERARCHICAL_MEMBERSHIP_ONLY",
+      "conversion_units_sld_hierarchy": 2,
+      "layout_only_conversion_units": 0,
+      "cu_count_basis": "CANONICAL_EXPLICIT_CU_IDENTITIES_ACROSS_SLD_AND_OPTIONAL_LAYOUT"
+    },
+    "legacy_documental_membership": {
+      "explicit_schedule_membership": [],
+      "summary": {
+        "explicit_schedule_membership_count": 0,
+        "explicit_schedule_feeder_count": 0,
+        "explicit_schedule_conflict_count": 0,
+        "sld_xfr_identity_crosschecked_count": 0,
+        "graph_verified_cu_mv_membership_count": 0,
+        "graph_conflict_count": 0,
+        "feeder_trace_count": 0,
+        "fully_graph_verified_feeder_count": 0,
+        "end_to_end_graph_trace_complete_count": 0,
+        "operator_xfr_terminal_bound_instance_count": 0,
+        "operator_feeder_root_bound_count": 0,
+        "operator_calibrated_graph_verified_count": 0,
+        "operator_added_bridge_count": 0,
+        "operator_added_instance_bridge_count": 0,
+        "operator_modeled_interposed_device_count": 0,
+        "operator_added_device_topology_edge_count": 0,
+        "breakpoint_review_count": 0,
+        "breakpoint_continuity_confirmed_count": 0,
+        "breakpoint_interposed_device_count": 0,
+        "breakpoint_non_electrical_graphic_count": 0,
+        "breakpoint_unresolved_count": 0,
+        "excluded_non_electrical_graphic_node_count": 0,
+        "suggested_breakpoint_count": 0
+      }
+    },
+    "legacy_graph_verification": {
+      "verified_membership": [],
+      "summary_count": 0,
+      "attribution": "DEV14C_INDEPENDENT_OF_BETA3"
+    },
+    "canonical_identity_summary": {
+      "canonical_conversion_unit_count": 2,
+      "matched_across_sources": 0,
+      "sld_only": 2,
+      "layout_only": 0,
+      "mv_line_count": 0,
+      "resolved_cu_mv_membership_count": 0,
+      "unresolved_mv_line_label_count": 0,
+      "resolved_mv_line_label_count": 0,
+      "operator_or_learned_mv_line_label_count": 0,
+      "explicit_schedule_membership_count": 0,
+      "graph_verified_cu_mv_membership_count": 0,
+      "membership_hard_conflict_count": 0,
+      "weak_geometry_disagreement_count": 0
+    },
+    "source_coverage": {
+      "sld": {
+        "doc_id": "CI::PV6::SLD",
+        "file_name": "PV6.pdf",
+        "source_role": "SLD",
+        "page_count": 4,
+        "processed_pages": 4,
+        "analysis_complete": true
+      },
+      "layout": {
+        "present": false,
+        "source_role": "LAYOUT"
+      }
+    },
+    "partial_sources": false
+  },
+  "cross_source_tag_correspondences": [],
+  "beta3_geometry": {
+    "fused_named_symbols_with_terminals": [
+      {
+        "page": 1,
+        "symbol_id": "CI::PV6::SLD_P001_VEC_0001",
+        "tag": "NNB-TPO-02-01",
+        "candidate_type": "MV_LV_TRANSFORMER",
+        "terminal_count": 2,
+        "evidence_state": "FUSED",
+        "electrical_role_verified": false
+      },
+      {
+        "page": 1,
+        "symbol_id": "CI::PV6::SLD_P001_VEC_0002",
+        "tag": "NNB-TPO-02-02",
+        "candidate_type": "MV_LV_TRANSFORMER",
+        "terminal_count": 1,
+        "evidence_state": "FUSED",
+        "electrical_role_verified": false
+      },
+      {
+        "page": 1,
+        "symbol_id": "CI::PV6::SLD_P001_VEC_0003",
+        "tag": "NNB-TPO-01-01",
+        "candidate_type": "MV_LV_TRANSFORMER",
+        "terminal_count": 1,
+        "evidence_state": "FUSED",
+        "electrical_role_verified": false
+      }
+    ],
+    "pair_inspections": [
+      {
+        "schema": "sld-beta3-automatic-pair-trace/v1",
+        "source_file": "PV6.pdf",
+        "page": 1,
+        "symbol_a": {
+          "id": "CI::PV6::SLD_P001_VEC_0001",
+          "tag": "NNB-TPO-02-01",
+          "type": "MV_LV_TRANSFORMER"
+        },
+        "symbol_b": {
+          "id": "CI::PV6::SLD_P001_VEC_0002",
+          "tag": "NNB-TPO-02-02",
+          "type": "MV_LV_TRANSFORMER"
+        },
+        "roi": [
+          253.7396240234375,
+          148.4412841796875,
+          386.0994873046875,
+          423.90118408203125
+        ],
+        "scope": "ROI_ONLY",
+        "geometry": {
+          "status": "COMPLETE",
+          "raw_strokes": 7729,
+          "retained_candidates": 54,
+          "nodes": 55,
+          "edges": 46,
+          "normalization": {
+            "EXACT_DUPLICATE": 5,
+            "CANDIDATES_RETAINED": 54,
+            "SHORT_UNDER_8PT_RETAINED": 27,
+            "COLORED_RETAINED": 0
+          },
+          "roi_clipping": {
+            "counts": {
+              "OUTSIDE_ROI": 7670,
+              "CROSSING_ROI_CLIPPED": 25,
+              "FULLY_INSIDE_ROI": 34,
+              "RETAINED_AFTER_ROI_CLIPPING": 59
+            },
+            "boundary_clipped_samples": [
+              {
+                "sid": "P1_D4_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  181.62152099609375
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  181.62152099609375
+                ]
+              },
+              {
+                "sid": "P1_D233_I0",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  350.3995666503906,
+                  181.62152099609375
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  181.62152099609375
+                ]
+              },
+              {
+                "sid": "P1_D234_I0",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  350.3995666503906,
+                  239.34124755859375
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  239.34124755859375
+                ]
+              },
+              {
+                "sid": "P1_D236_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  346.4410400390625
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  346.4410400390625
+                ]
+              },
+              {
+                "sid": "P1_D237_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  239.34124755859375
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  239.34124755859375
+                ]
+              },
+              {
+                "sid": "P1_D239_I1",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  346.4410400390625
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  346.4410400390625
+                ]
+              },
+              {
+                "sid": "P1_D241_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  401.760986328125
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  401.760986328125
+                ]
+              },
+              {
+                "sid": "P1_D270_I4",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.533838718578
+                ],
+                "inside_p2": [
+                  386.0346374511719,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D270_I5",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  386.0346374511719,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  367.2486154254869
+                ]
+              },
+              {
+                "sid": "P1_D279_I1",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  341.03521728515625,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D279_I2",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  341.03521728515625,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D295_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  384.5346374511719,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D341_I4",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  205.09354368205572
+                ],
+                "inside_p2": [
+                  386.0393981933594,
+                  204.96136474609375
+                ]
+              },
+              {
+                "sid": "P1_D341_I5",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  386.0393981933594,
+                  204.96136474609375
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  204.8292713549313
+                ]
+              },
+              {
+                "sid": "P1_D350_I1",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  204.96136474609375
+                ],
+                "inside_p2": [
+                  341.0394287109375,
+                  204.96136474609375
+                ]
+              },
+              {
+                "sid": "P1_D350_I2",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  341.0394287109375,
+                  204.96136474609375
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  204.96136474609375
+                ]
+              },
+              {
+                "sid": "P1_D366_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  204.96136474609375
+                ],
+                "inside_p2": [
+                  384.5393981933594,
+                  204.96136474609375
+                ]
+              },
+              {
+                "sid": "P1_D430_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  319.9920654296875
+                ],
+                "inside_p2": [
+                  360.5349426269531,
+                  319.9920654296875
+                ]
+              },
+              {
+                "sid": "P1_D442_I0",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  319.8555908203125,
+                  417.67071533203125
+                ],
+                "inside_p2": [
+                  319.8555908203125,
+                  423.90118408203125
+                ]
+              },
+              {
+                "sid": "P1_D525_I0",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  319.8595275878906,
+                  154.7412109375
+                ],
+                "inside_p2": [
+                  319.8595275878906,
+                  148.4412841796875
+                ]
+              }
+            ],
+            "boundary_endpoint_policy": "ARTIFICIAL_DIAGNOSTIC_NOT_ELECTRICAL_TERMINAL"
+          },
+          "warnings": []
+        },
+        "trace": {
+          "status": "DISCONNECTED_IN_ROI",
+          "reason": "NO_LOCAL_PATH",
+          "blocked_edges_through_devices": 14,
+          "unbound_or_ambiguous_terminals": 1
+        },
+        "electrical_claim": "NOT_VERIFIED",
+        "feeder_membership_claim": "NOT_VERIFIED",
+        "ground_truth_used": false,
+        "expected_counts_used": false,
+        "notes": [
+          "Only geometric proximity selected this pair",
+          "ROI border cuts are artificial, not electrical endpoints",
+          "A candidate path does not prove device or feeder electrical connectivity"
+        ]
+      },
+      {
+        "schema": "sld-beta3-automatic-pair-trace/v1",
+        "source_file": "PV6.pdf",
+        "page": 1,
+        "symbol_a": {
+          "id": "CI::PV6::SLD_P001_VEC_0002",
+          "tag": "NNB-TPO-02-02",
+          "type": "MV_LV_TRANSFORMER"
+        },
+        "symbol_b": {
+          "id": "CI::PV6::SLD_P001_VEC_0003",
+          "tag": "NNB-TPO-01-01",
+          "type": "MV_LV_TRANSFORMER"
+        },
+        "roi": [
+          253.7396240234375,
+          310.86126708984375,
+          386.0994873046875,
+          689.7008056640625
+        ],
+        "scope": "ROI_ONLY",
+        "geometry": {
+          "status": "COMPLETE",
+          "raw_strokes": 7729,
+          "retained_candidates": 152,
+          "nodes": 230,
+          "edges": 142,
+          "normalization": {
+            "EXACT_DUPLICATE": 4,
+            "CANDIDATES_RETAINED": 152,
+            "SHORT_UNDER_8PT_RETAINED": 117,
+            "COLORED_RETAINED": 0
+          },
+          "roi_clipping": {
+            "counts": {
+              "OUTSIDE_ROI": 7573,
+              "FULLY_INSIDE_ROI": 120,
+              "CROSSING_ROI_CLIPPED": 36,
+              "RETAINED_AFTER_ROI_CLIPPING": 156
+            },
+            "boundary_clipped_samples": [
+              {
+                "sid": "P1_D2_I1",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  356.0394287109375,
+                  585.6009521484375
+                ],
+                "inside_p2": [
+                  253.7396240234375,
+                  585.815185546875
+                ]
+              },
+              {
+                "sid": "P1_D2_I2",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  585.90087890625
+                ],
+                "inside_p2": [
+                  356.0394287109375,
+                  585.90087890625
+                ]
+              },
+              {
+                "sid": "P1_D2_I5",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  585.6009521484375
+                ],
+                "inside_p2": [
+                  356.0394287109375,
+                  585.6009521484375
+                ]
+              },
+              {
+                "sid": "P1_D120_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  461.341064453125
+                ],
+                "inside_p2": [
+                  256.61968994140625,
+                  461.341064453125
+                ]
+              },
+              {
+                "sid": "P1_D145_I0",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  385.7994384765625,
+                  461.341064453125
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  461.341064453125
+                ]
+              },
+              {
+                "sid": "P1_D236_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  346.4410400390625
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  346.4410400390625
+                ]
+              },
+              {
+                "sid": "P1_D236_I1",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  350.3995666503906,
+                  346.4410400390625
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  310.86126708984375
+                ]
+              },
+              {
+                "sid": "P1_D239_I1",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  346.4410400390625
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  346.4410400390625
+                ]
+              },
+              {
+                "sid": "P1_D241_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  401.760986328125
+                ],
+                "inside_p2": [
+                  350.3995666503906,
+                  401.760986328125
+                ]
+              },
+              {
+                "sid": "P1_D270_I4",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.533838718578
+                ],
+                "inside_p2": [
+                  386.0346374511719,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D270_I5",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  386.0346374511719,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  367.2486154254869
+                ]
+              },
+              {
+                "sid": "P1_D279_I1",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  341.03521728515625,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D279_I2",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  341.03521728515625,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  386.0994873046875,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D295_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  367.39117431640625
+                ],
+                "inside_p2": [
+                  384.5346374511719,
+                  367.39117431640625
+                ]
+              },
+              {
+                "sid": "P1_D430_I0",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  386.0994873046875,
+                  319.9920654296875
+                ],
+                "inside_p2": [
+                  360.5349426269531,
+                  319.9920654296875
+                ]
+              },
+              {
+                "sid": "P1_D613_I1",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  356.0350036621094,
+                  530.2891235351562
+                ],
+                "inside_p2": [
+                  253.7396240234375,
+                  530.5043858756941
+                ]
+              },
+              {
+                "sid": "P1_D613_I2",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  530.589111328125
+                ],
+                "inside_p2": [
+                  356.0350036621094,
+                  530.589111328125
+                ]
+              },
+              {
+                "sid": "P1_D613_I5",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  530.2891235351562
+                ],
+                "inside_p2": [
+                  356.0350036621094,
+                  530.2891235351562
+                ]
+              },
+              {
+                "sid": "P1_D613_I13",
+                "clipped_start": true,
+                "clipped_end": false,
+                "inside_p1": [
+                  253.7396240234375,
+                  320.1475471894919
+                ],
+                "inside_p2": [
+                  356.0950622558594,
+                  319.93206787109375
+                ]
+              },
+              {
+                "sid": "P1_D613_I14",
+                "clipped_start": false,
+                "clipped_end": true,
+                "inside_p1": [
+                  356.0950622558594,
+                  319.93206787109375
+                ],
+                "inside_p2": [
+                  253.7396240234375,
+                  319.93206787109375
+                ]
+              }
+            ],
+            "boundary_endpoint_policy": "ARTIFICIAL_DIAGNOSTIC_NOT_ELECTRICAL_TERMINAL"
+          },
+          "warnings": []
+        },
+        "trace": {
+          "status": "DISCONNECTED_IN_ROI",
+          "reason": "NO_LOCAL_PATH",
+          "blocked_edges_through_devices": 14,
+          "unbound_or_ambiguous_terminals": 0
+        },
+        "electrical_claim": "NOT_VERIFIED",
+        "feeder_membership_claim": "NOT_VERIFIED",
+        "ground_truth_used": false,
+        "expected_counts_used": false,
+        "notes": [
+          "Only geometric proximity selected this pair",
+          "ROI border cuts are artificial, not electrical endpoints",
+          "A candidate path does not prove device or feeder electrical connectivity"
+        ]
+      }
+    ],
+    "error_diagnostics": [],
+    "summary": {
+      "inspections_completed": 2,
+      "inspection_budget": 4,
+      "named_fused_symbol_count": 3,
+      "local_geometric_path_candidates": 0,
+      "disconnected_in_roi": 2,
+      "unresolved_in_roi": 0,
+      "beta3_graph_verified_feeder_membership": 0,
+      "reason": "No complete feeder root to CU trace established by beta3"
+    }
+  },
+  "evaluation": {
+    "end_to_end_beta3_electrical_feeder_path_verified": false,
+    "whole_plant_beta3_graph_completed": false,
+    "counts_not_sourced_from_regression_oracle": true,
+    "notes": [
+      "Legacy hierarchy/membership originates from an unchanged independent dev14c run.",
+      "Beta3 ROI inspection does not change, confirm or reject dev14c document inference.",
+      "Cross-source exact tag matches are not enough to assert identical physical assets.",
+      "No Ground Truth or benchmark counts are accessible to the inference pipeline."
+    ]
+  },
+  "outputs": {
+    "dev14c_inference": "dev14c_inference.json",
+    "integrated_report": "integrated_report.json"
+  }
+}
