@@ -9,8 +9,8 @@ from sld_ci_v04_beta3.sap.cad_bus_provenance_alpha22 import (
     audit_bus_and_winding, audit_cad_pdf, detect_series_apparatus_motifs, open_gaps,
     write_alpha22_reports)
 from sld_ci_v04_beta3.sap.cad_device_edges import (
-    EDGE_OK, PATH_OK, collect_vertical_strokes, cross_check_review, device_edges,
-    tr_inverter_paths, uncovered_intervals)
+    EDGE_OK, PATH_OK, collect_axis_evidence, collect_vertical_strokes, cross_check_review,
+    device_edges, device_type_candidate, tr_inverter_paths, uncovered_intervals)
 from sld_ci_v04_beta3.tests.test_alpha22_bus_provenance import setup
 
 GREEN, MAGENTA, ORANGE = (0, 1, 0), (1, 0, 1), (1, .5, 0)
@@ -184,7 +184,92 @@ class EndToEndAuditTests(unittest.TestCase):
             self.assertEqual(relations.count('ATTRAVERSATE_CON_ARCHI_DISPOSITIVO'), 3)
             self.assertNotIn('NON_PONTICELLATE', relations)
             devices = out['dispositivi'].read_text(encoding='utf-8-sig').splitlines()
-            self.assertTrue(all(line.endswith(';NO;SI') for line in devices[1:]))
+            self.assertTrue(all(';NO;SI;' in line for line in devices[1:]))
+
+
+def _line(page, a, b, color=ORANGE, dashed=False):
+    shape = page.new_shape()
+    shape.draw_line(fitz.Point(*a), fitz.Point(*b))
+    shape.finish(color=color, width=.3, closePath=False, dashes='[1 1] 0' if dashed else None)
+    shape.commit()
+
+
+def draw_iec_branch(page, x, *, x_offset=0.0, open_triangle=False, blade_shift=0.0, dashed=False):
+    """Ramo sbarra->inverter come su Settimo: tratto, triangolo estraibile,
+    tratto, [simbolo], tratto, lama, X sul capo verso l'inverter."""
+    _line(page, (x, 60), (x, 62.5))
+    tri = [((x, 62.5), (x + .57, 64.0)), ((x + .57, 64.0), (x - .57, 64.0)), ((x - .57, 64.0), (x, 62.5))]
+    shape = page.new_shape()
+    for a, b in (tri[:2] if open_triangle else tri):
+        shape.draw_line(fitz.Point(*a), fitz.Point(*b))
+    shape.finish(color=(0, 0, 0), width=.3, closePath=False, dashes='[1 1] 0' if dashed else None)
+    shape.commit()
+    _line(page, (x, 64.0), (x, 65.9))
+    _line(page, (x, 69.1), (x, 69.9))
+    _line(page, (x + blade_shift, 69.9), (x + blade_shift - 1.46, 72.3), color=(0, 1, 1))
+    cx = x + x_offset
+    shape = page.new_shape()
+    shape.draw_line(fitz.Point(cx - .39, 72.31), fitz.Point(cx + .39, 73.09))
+    shape.draw_line(fitz.Point(cx - .39, 73.09), fitz.Point(cx + .39, 72.31))
+    shape.finish(color=(0, 0, 0), width=.3, closePath=False, dashes='[1 1] 0' if dashed else None)
+    shape.commit()
+
+
+class IecPrimitiveTests(unittest.TestCase):
+    """Copertura dei gap tramite primitive IEC 60617 sull'asse (caso reale Settimo/PV3)."""
+
+    def _scene(self, **branch):
+        doc = fitz.open()
+        page = doc.new_page(width=1000, height=1000)
+        draw_symbols(page)
+        _line(page, (60, 52), (60, 53.0))
+        _line(page, (60, 56.2), (60, 60))
+        for x in XS:
+            draw_iec_branch(page, x, **branch)
+        s, r, w = setup()
+        audit = audit_bus_and_winding(s, r, w)
+        audit['source_series_device_visual_motifs'] = detect_series_apparatus_motifs(page, audit)
+        edges = device_edges(collect_axis_evidence(page), open_gaps(audit),
+                             audit['source_series_device_visual_motifs'])
+        doc.close()
+        return audit, {e['downstream_entity']: e for e in edges}
+
+    def test_withdrawable_breaker_primitives_close_the_gap(self):
+        audit, edges = self._scene()
+        for inv in ('INV_1', 'INV_2', 'INV_3'):
+            e = edges[inv]
+            self.assertTrue(e['device_edge_created'], e)
+            self.assertEqual(e['device_type_candidate'], 'INTERRUTTORE_ESTRAIBILE')
+            self.assertFalse(e['device_type_classified'])
+            self.assertEqual(sorted(c['kind'] for c in e['device_components']),
+                             ['BREAKER_CONTACT_X', 'SWITCH_BLADE', 'WITHDRAWABLE_CONTACT'])
+        self.assertEqual(len(tr_inverter_paths(audit, list(edges.values()))), 3)
+
+    def test_x_off_axis_does_not_cover(self):
+        _, edges = self._scene(x_offset=1.0)
+        self.assertFalse(any(edges[i]['device_edge_created'] for i in ('INV_1', 'INV_2', 'INV_3')))
+
+    def test_open_triangle_is_not_a_contact(self):
+        _, edges = self._scene(open_triangle=True)
+        e = edges['INV_2']
+        self.assertFalse(e['device_edge_created'])
+        self.assertEqual(e['uncovered_upstream_px'], [(62.5, 64.0)])
+
+    def test_blade_with_both_ends_off_axis_does_not_cover(self):
+        _, edges = self._scene(blade_shift=3.0)   # entrambi i capi a >= 1.5 px dall'asse
+        self.assertFalse(edges['INV_2']['device_edge_created'])
+
+    def test_dashed_primitives_ignored(self):
+        _, edges = self._scene(dashed=True)
+        self.assertFalse(edges['INV_2']['device_edge_created'])
+
+    def test_type_candidate_rules(self):
+        self.assertEqual(device_type_candidate(['SWITCH_BLADE']), 'SEZIONATORE_O_IMS')
+        self.assertEqual(device_type_candidate(['SWITCH_BLADE', 'WITHDRAWABLE_CONTACT']),
+                         'SEZIONATORE_O_IMS_ESTRAIBILE')
+        self.assertEqual(device_type_candidate(['BREAKER_CONTACT_X', 'SWITCH_BLADE']), 'INTERRUTTORE')
+        self.assertIsNone(device_type_candidate(['BREAKER_CONTACT_X']))
+        self.assertIsNone(device_type_candidate([]))
 
 
 class ReviewCrossCheckTests(unittest.TestCase):

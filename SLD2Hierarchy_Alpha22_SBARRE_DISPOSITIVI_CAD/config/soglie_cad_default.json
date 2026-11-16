@@ -17,5 +17,7 @@
     1.0
   ],
   "device_axis_tolerance": 0.6,
-  "device_attach_tolerance": 0.55
+  "device_attach_tolerance": 0.55,
+  "device_primitive_max_size": 2.0,
+  "device_blade_max_offset": 2.5
 }

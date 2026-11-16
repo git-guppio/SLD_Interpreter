@@ -3,6 +3,23 @@
 Le note di rilascio originali, complete, sono in [docs/storico/](docs/storico/)
 (`LEGGIMI_ALPHAn.md`).
 
+## 0.25.0 — primitive IEC 60617 e prima misura su PDF reali (2026-11-16)
+
+- Su Settimo e PV3 lo stadio 0.24.0 si asteneva su tutti gli apparecchi: le
+  lacune residue erano parti del simbolo stesso. Ora le primitive IEC 60617
+  poggiate sull'asse coprono il proprio tratto: triangolo chiuso
+  (`WITHDRAWABLE_CONTACT`), X centrata (`BREAKER_CONTACT_X`), lama con un solo
+  capo sull'asse (`SWITCH_BLADE`). Tipo candidato derivato dalle primitive,
+  `device_type_classified` resta False.
+- **Settimo (PDF reale, SHA256 della review):** 4 archi-dispositivo, 3 percorsi
+  TR→INV, tutti `INTERRUTTORE_ESTRAIBILE`; il confronto con la review operatore
+  dà 3/3 `SUPPORTATA_DA_PERCORSO`. PV3 dà lo stesso esito ma è un quasi
+  duplicato geometrico, non una validazione indipendente.
+- CSV dispositivi: nuove colonne `tipologia_candidata`, `primitive_IEC`.
+- Nuove soglie `device_primitive_max_size`, `device_blade_max_offset`.
+- 6 nuovi test (424 in totale), inclusi i casi negativi (X fuori asse,
+  triangolo aperto, lama fuori asse, primitive tratteggiate).
+
 ## 0.24.0 — archi-dispositivo nei CAD vettoriali (2026-11-16)
 
 - Nuovo stadio `sap/cad_device_edges.py`: un apparecchio in serie viene

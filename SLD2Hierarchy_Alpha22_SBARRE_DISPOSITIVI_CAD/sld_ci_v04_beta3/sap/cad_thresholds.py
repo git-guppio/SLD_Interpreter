@@ -36,6 +36,9 @@ class CadBusThresholds:
     # spazi residui conduttore->simbolo->conduttore lungo l'asse del ramo.
     device_axis_tolerance: float = 0.6     # scostamento max di un tratto dall'asse
     device_attach_tolerance: float = 0.55  # lacuna max ammessa (= tolleranza capi Alpha20)
+    # Primitive IEC 60617 sull'asse (triangolo estraibile, X interruttore, lama)
+    device_primitive_max_size: float = 2.0  # lato max di triangolo / X
+    device_blade_max_offset: float = 2.5    # scostamento laterale max della punta della lama
 
     def as_dict(self) -> dict:
         return asdict(self)

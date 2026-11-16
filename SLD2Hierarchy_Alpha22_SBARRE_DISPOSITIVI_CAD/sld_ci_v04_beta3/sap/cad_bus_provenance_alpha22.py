@@ -27,7 +27,7 @@ from PIL import Image, ImageDraw, ImageFont
 from .cad_conductor_graph_alpha20 import extract_solid_conductors, frame_scale, _distance
 from .vector_diagnostics_alpha17 import _render
 from .cad_thresholds import CadBusThresholds, DEFAULT as DEFAULT_THRESHOLDS
-from .cad_device_edges import collect_vertical_strokes, device_edges, tr_inverter_paths
+from .cad_device_edges import collect_axis_evidence, device_edges, tr_inverter_paths
 
 SCHEMA='sld-alpha22-cad-bus-evidence/v1'
 
@@ -302,7 +302,7 @@ def audit_cad_pdf(pdf_path,alpha20_report,thresholds:CadBusThresholds=DEFAULT_TH
             record['source_series_device_visual_motifs']=detect_series_apparatus_motifs(
                 pdf[pageno-1],record,thresholds)
             # Archi-dispositivo solo dove tratti disegnati coprono i gap (vedi cad_device_edges).
-            edges=device_edges(collect_vertical_strokes(pdf[pageno-1]),open_gaps(record),
+            edges=device_edges(collect_axis_evidence(pdf[pageno-1],thresholds),open_gaps(record),
                                record['source_series_device_visual_motifs'],thresholds)
             record['device_edges']=edges
             record['device_edges_automatically_created']=sum(e['device_edge_created'] for e in edges)
@@ -355,17 +355,19 @@ def write_alpha22_reports(pdf_path,report,out_dir):
     with out_devices.open('w',newline='',encoding='utf-8-sig') as fh:
         w=csv.writer(fh,delimiter=';')
         w.writerow(['pagina','tipo_interruzione','apparecchiatura_a_valle','percorso_sorgente','contatti_sorgente',
-                    'bbox_px','stato_simbolo','tipologia_elettrica_verificata','arco_dispositivo_creato'])
+                    'bbox_px','stato_simbolo','tipologia_elettrica_verificata','arco_dispositivo_creato',
+                    'tipologia_candidata','primitive_IEC'])
         for page in report['pages']:
-            edge_ok={(e['gap_type'],e['downstream_entity']) for e in page.get('device_edges',[])
-                     if e['device_edge_created']}
+            edge_by={(e['gap_type'],e['downstream_entity']):e for e in page.get('device_edges',[])}
             for item in page.get('source_series_device_visual_motifs',[]):
-                created=(item['gap_type'],item['downstream_entity']) in edge_ok
+                edge=edge_by.get((item['gap_type'],item['downstream_entity']),{})
+                created=bool(edge.get('device_edge_created'))
                 w.writerow([page['page'],item['gap_type'],item['downstream_entity'],
                             item.get('outline_source_path_index',''),
                             json.dumps(item.get('contact_source_path_indices',[])),
                             json.dumps(item.get('symbol_bbox_px',[])),item['status'],'NO',
-                            'SI' if created else 'NO'])
+                            'SI' if created else 'NO',edge.get('device_type_candidate') or '',
+                            ','.join(sorted({c['kind'] for c in edge.get('device_components',[])}))])
     result={'report':out_json,'csv':out_csv,'dispositivi':out_devices}
     checks=report.get('operator_review_cross_check') or []
     if checks:

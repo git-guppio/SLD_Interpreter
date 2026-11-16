@@ -19,5 +19,5 @@ if errorlevel 1 (
   pause
   exit /b 1
 )
-echo TEST COMPLETATI - 418/418 attesi
+echo TEST COMPLETATI - 424/424 attesi
 pause

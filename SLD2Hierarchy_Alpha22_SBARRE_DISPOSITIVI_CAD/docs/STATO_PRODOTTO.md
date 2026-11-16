@@ -55,3 +55,23 @@ Lo stadio è verificato solo su PDF sintetici: **il risultato su Settimo e PV3
 non è ancora stato misurato** perché i PDF originali non sono disponibili in
 questo repository. Fino a quella misura, i collegamenti TR→INV automatici su
 Settimo vanno considerati ancora 0.
+
+## Aggiornamento 0.25.0 (2026-11-16) — misura su PDF reali
+
+Eseguito su `PV13_Settimo_Torinese.pdf` (SHA256 identico alla review operatore)
+e su `PV3_SLD.pdf`, senza OCR:
+
+| | Settimo | PV3 |
+|---|---|---|
+| Archi-dispositivo creati | 4/4 | 4/4 |
+| Percorsi TR→INV attraverso apparecchi | 3 | 3 |
+| Tipo candidato apparecchi | INTERRUTTORE_ESTRAIBILE (4) | INTERRUTTORE_ESTRAIBILE (4) |
+| Confronto con review operatore | 3/3 SUPPORTATA_DA_PERCORSO | nessuna review |
+
+Prima ricostruzione automatica della topologia TR→INV su Settimo, coerente
+con la conferma dell'operatore. Restano valide queste cautele:
+- i percorsi sono `inferred`: lo stato aperto/chiuso non è rappresentato e il
+  tipo è solo candidato;
+- PV3 è un quasi duplicato di Settimo: **un solo stile CAD validato**;
+- le regole delle primitive vanno misurate su un corpus indipendente (blocco 3)
+  prima di usarle per promuovere parentele SAP senza review.
