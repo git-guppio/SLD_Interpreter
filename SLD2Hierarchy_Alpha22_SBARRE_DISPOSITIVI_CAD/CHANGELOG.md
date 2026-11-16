@@ -1,0 +1,47 @@
+# Changelog
+
+Le note di rilascio originali, complete, sono in [docs/storico/](docs/storico/)
+(`LEGGIMI_ALPHAn.md`).
+
+## 0.22.1 — consolidamento (2026-11-16)
+
+- **Fix:** crash della pipeline CAD vettoriale (Alpha 18→22) con OpenCV 5:
+  `HoughLinesP` restituisce ora un array N×4 invece di N×1×4. Gestite entrambe le forme.
+  La suite torna a 384/384 (335 beta3 + 49 dev14c, 1 skip per PDF PV11 assente).
+- Aggiunti i `__init__.py` mancanti in `sld_ci_v04_beta3` e sottopacchetti e il
+  `__main__.py` (`python -m sld_ci_v04_beta3` documentato nel README ora funziona).
+- Aggiunto `requirements-lock.txt` con le versioni verificate.
+- Versione unica in `sld_ci_v04_beta3.__version__`, mostrata nel titolo della GUI
+  (prima indicava "Alpha 21").
+- Launcher riorganizzati: in radice solo `AVVIA_SLD2HIERARCHY.bat` e `run_tests.bat`;
+  diagnostiche in `strumenti/`, versioni superate in `legacy/`.
+  Nuovo `strumenti/ANALIZZA_CAD_VETTORIALE.bat` (CLI Alpha 22).
+- Messaggio "Tkinter non disponibile" ora indica un'alternativa che non richiede Tkinter.
+- Documentazione: nuovo `README.md`; LEGGIMI storici in `docs/storico/`;
+  stato, roadmap e requisiti in `docs/`.
+
+## Storico Alpha
+
+| Versione | Contenuto |
+|---|---|
+| Alpha 22 | Sbarre CAD e discontinuità documentate; motivi di apparecchiatura in serie candidati |
+| Alpha 21 | QPS CAD = String Box; struttura CU/TR/INV confermata dall'operatore (vincolo SHA256 PDF) |
+| Alpha 20 | Tracciamento dei conduttori CAD fino ai morsetti; OCR QPS locale |
+| Alpha 19 | Ipotesi grafiche ordinali controllabili; roadmap verso la versione operativa |
+| Alpha 18 | Candidati inverter strutturali nei CAD vettoriali (colore/forma) |
+| Alpha 17 | Diagnostica dei CAD vettoriali senza testo |
+| Alpha 16 | Terza famiglia documentale: etichette LVL-SB (PV8) |
+| Alpha 15 | Riconoscimento multistile, tag indicizzati (PV5/6/7) |
+| Alpha 14 | Workbench unico punto di accesso |
+| Alpha 13 | Verifica visiva delle evidenze PDF (HITL per inverter) |
+| Alpha 12 | Gerarchie stereotipate, export CSV + Excel; selezione file da GUI |
+| Alpha 11 | Parentage TR/INV con conferme HITL |
+| Alpha 10 | Diagnostica documentale SAP-first da etichette |
+| Alpha 9 | SAP-first, staging Matrix FLOW; requisiti PoC congelati |
+| Alpha 8 | Geometria prima dei tag |
+| Alpha 7 | Simboli e contatti candidati; triage multistile |
+| Alpha 6 | Diagnostica affidabile, benchmark corpus |
+| Alpha 5 | Triage multistile, integrazione SLD + layout |
+| Alpha 4 | Diagnostica approdi dei rimandi |
+| Alpha 3 | Rimandi tra pagine |
+| Alpha 2 | Prima integrazione beta3 |

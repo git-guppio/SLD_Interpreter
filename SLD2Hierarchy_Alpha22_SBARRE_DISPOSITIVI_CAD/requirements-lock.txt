@@ -1,0 +1,11 @@
+# Versioni esatte con cui la suite passa 384/384 (335 beta3 + 49 dev14c),
+# verificata il 2026-11-16 su Windows 11, Python 3.13.0.
+# Installazione riproducibile:  python -m pip install -r requirements-lock.txt
+# requirements_beta3.txt resta l'elenco dei vincoli minimi.
+networkx==3.7
+numpy==2.5.5
+opencv-python==5.0.0.93
+pillow==13.0.0
+pymupdf==2.1
+pytesseract==0.3.13
+# Tesseract OCR (eseguibile) va installato a parte: serve solo per l'OCR QPS Alpha20+.

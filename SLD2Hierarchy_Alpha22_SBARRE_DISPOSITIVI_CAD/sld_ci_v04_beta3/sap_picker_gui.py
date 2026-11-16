@@ -59,7 +59,7 @@ def main() -> int:
         import tkinter as tk
         from tkinter import filedialog, messagebox, simpledialog
     except ImportError:
-        print("[ERRORE] Tkinter non disponibile. Usa il file esporta_gerarchia_stereotipi_PDF.bat (modalita manuale).")
+        print("[ERRORE] Tkinter non disponibile. Usa il file strumenti\\esporta_gerarchia_stereotipi_PDF.bat (modalita manuale).")
         return 3
 
     try:
@@ -69,7 +69,7 @@ def main() -> int:
         root.update_idletasks()
     except tk.TclError as ex:
         print(f"[ERRORE] Impossibile aprire la finestra di selezione: {ex}")
-        print("Alternativa: esporta_gerarchia_stereotipi_PDF.bat (modalita manuale).")
+        print("Alternativa: strumenti\\esporta_gerarchia_stereotipi_PDF.bat (modalita manuale).")
         return 3
 
     project_root = Path(__file__).resolve().parent.parent

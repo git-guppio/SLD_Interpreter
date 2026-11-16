@@ -51,7 +51,8 @@ def _diagonal_present(image_array, box):
     if lines is None:
         return False
     diag = 0
-    for raw in lines[:, 0, :]:
+    # OpenCV 4 returns shape (N, 1, 4), OpenCV 5 returns (N, 4).
+    for raw in np.asarray(lines).reshape(-1, 4):
         x0, y0, x1l, y1l = (int(v) for v in raw)
         dx, dy = abs(x1l-x0), abs(y1l-y0)
         if dx >= 4 and dy >= 4 and .35 <= dx / dy <= 2.8:

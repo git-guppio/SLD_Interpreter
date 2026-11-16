@@ -1,4 +1,8 @@
-"""Alpha17: unified, local-only Windows workbench for the SAP-first PV prototype.
+"""Workbench Windows unificato (GUI principale) del prototipo SAP-first PV.
+
+Il nome del modulo (``alpha16``) e storico e resta per compatibilita con i
+test e con AVVIA_SLD2HIERARCHY.bat; la versione mostrata in GUI viene da
+``sld_ci_v04_beta3.__version__``.
 
 UI orchestration only. The Alpha10-12 recognition/export engine and the
 Alpha13 per-inverter viewer are imported unchanged. No network requests.
@@ -18,6 +22,7 @@ import subprocess
 import sys
 import threading
 
+from . import __version__
 from .sap_picker_gui import build_export_command, default_plant_id, valid_plant_id
 from .sap.evidence_visual_alpha13 import LEDGER_FILENAME, load_evidence
 from .sap.multistyle_alpha15 import TR_RE, INV_RE
@@ -308,12 +313,12 @@ def main() -> int:
         import tkinter as tk
         from tkinter import filedialog, messagebox, ttk
     except ImportError:
-        print('Tkinter non disponibile: usa AVVIA_ALPHA12_CON_FINESTRA.bat.')
+        print('Tkinter non disponibile: usa strumenti\\esporta_gerarchia_stereotipi_PDF.bat (modalita manuale).')
         return 3
 
     project_root = Path(__file__).resolve().parent.parent
     root = tk.Tk()
-    root.title('SLD2Hierarchy  |  Workbench SAP PV - Alpha 21')
+    root.title(f'SLD2Hierarchy  |  Workbench SAP PV - v{__version__} (Alpha 22)')
     root.geometry('940x715')
     root.minsize(770, 600)
     style = ttk.Style(root)
@@ -522,7 +527,7 @@ def main() -> int:
             show_error('Riepilogo non generato',ex);return
         log(f'Riepilogo prove: {count} elaborazioni | {file}')
         if count==0:
-            messagebox.showinfo('Nessuna prova','Non ci sono ancora elaborazioni Alpha16.\nAnalizza un PDF per iniziare.',parent=root)
+            messagebox.showinfo('Nessuna prova','Non ci sono ancora elaborazioni.\nAnalizza un PDF per iniziare.',parent=root)
         else:
             messagebox.showinfo('Riepilogo creato',f'Elaborazioni elencate: {count}\n\nFile CSV:\n{file}\n\n'
                 'Le quantita sono risultati documentali, NON percentuali di accuratezza.',parent=root)
