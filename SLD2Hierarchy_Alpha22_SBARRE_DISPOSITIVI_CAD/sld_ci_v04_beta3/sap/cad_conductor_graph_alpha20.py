@@ -51,13 +51,22 @@ def _horizontal_or_vertical(a,b,tol=0.35):
     return abs(a[0]-b[0])<=tol or abs(a[1]-b[1])<=tol
 
 
+def frame_scale(page, target_width=1000):
+    """Fattore pt PDF -> coordinate "px" comuni a tutti gli stadi CAD (Alpha17-22).
+
+    Le pagine grandi sono ridotte a 1000 px sul lato lungo; le piccole restano 1:1.
+    Coincide con il rapporto usato da vector_diagnostics_alpha17._render.
+    """
+    return min(1.0,target_width/max(page.rect.width,page.rect.height))
+
+
 def extract_solid_conductors(page, *, target_width=1000, min_length=3.0):
     """Extract orthogonal uninterrupted black strokes in rendered page coords.
 
     No gray/colored/dashed paths, polygon outlines, curves, source-text glyphs
     or generated raster lines become electrical evidence automatically.
     """
-    scale=min(1.0,target_width/max(page.rect.width,page.rect.height))
+    scale=frame_scale(page,target_width)
     transform=page.rotation_matrix
     out=[]
     for path in page.get_drawings():

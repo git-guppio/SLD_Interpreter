@@ -24,9 +24,10 @@ except ImportError:
     import fitz
 
 from PIL import Image, ImageDraw, ImageFont
-from .cad_conductor_graph_alpha20 import extract_solid_conductors, _distance
+from .cad_conductor_graph_alpha20 import extract_solid_conductors, frame_scale, _distance
 from .vector_diagnostics_alpha17 import _render
 from .cad_thresholds import CadBusThresholds, DEFAULT as DEFAULT_THRESHOLDS
+from .cad_device_edges import collect_vertical_strokes, device_edges, tr_inverter_paths
 
 SCHEMA='sld-alpha22-cad-bus-evidence/v1'
 
@@ -179,17 +180,15 @@ def audit_bus_and_winding(strokes,runs,winding_evidence,*,page=1,thresholds:CadB
 
 
 
-def detect_series_apparatus_motifs(page, audit_record, thresholds:CadBusThresholds=DEFAULT_THRESHOLDS):
-    """Identify source green/magenta in-line symbol motifs *inside* open gaps.
+def open_gaps(audit_record):
+    """Discontinuita verticali non attraversate: (tipo, entita_a_valle, x, y_monte, y_valle).
 
-    This is deliberately a *device-like visual* class. It is NOT sufficient
-    to classify an IOCB, switch, CT or other specific apparatus, and does not
-    make any electrical connection. It gives the next semantic recognition
-    stage explicit source path IDs and small bounding boxes to review.
+    - TR_SECONDARY_TO_BUSBAR: dal capo del filo secondario del TR alla sbarra;
+    - BUSBAR_TO_INVERTER: dalla sbarra al morsetto aperto di ciascun inverter.
     """
     bus=audit_record['busbar_evidence'].get('bus')
     if not bus:return []
-    x0,by,x1,_=bus['bbox_px']
+    _,by,_,_=bus['bbox_px']
     tr=audit_record['winding_evidence'].get('transformer')
     gaps=[]
     if tr:
@@ -198,10 +197,25 @@ def detect_series_apparatus_motifs(page, audit_record, thresholds:CadBusThreshol
     for branch in bus['members']:
         x,cy=branch['upstream_open_terminal_px']
         gaps.append(('BUSBAR_TO_INVERTER',branch['converter_candidate_id'],x,by,cy))
+    return gaps
+
+
+def detect_series_apparatus_motifs(page, audit_record, thresholds:CadBusThresholds=DEFAULT_THRESHOLDS):
+    """Identify source green/magenta in-line symbol motifs *inside* open gaps.
+
+    This is deliberately a *device-like visual* class. It is NOT sufficient
+    to classify an IOCB, switch, CT or other specific apparatus, and does not
+    make any electrical connection. It gives the next semantic recognition
+    stage explicit source path IDs and small bounding boxes to review.
+    """
+    gaps=open_gaps(audit_record)
+    if not gaps:return []
 
     # Positions follow the page's rotated (display) coordinate frame, same as
     # Alpha20; no template, plant-name or expected fanout is supplied.
-    k=1000/max(page.rect.width,page.rect.height)
+    # Stessa scala di extract_solid_conductors: sulle pagine < 1000 pt il
+    # fattore e 1 (prima era 1000/lato, con coordinate sfalsate rispetto ai gap).
+    k=frame_scale(page)
     rotation=page.rotation_matrix
     # "green" = contorno del simbolo, "magenta" = contatti interni (colori del profilo).
     outline_color=tuple(thresholds.series_outline_color)
@@ -287,12 +301,18 @@ def audit_cad_pdf(pdf_path,alpha20_report,thresholds:CadBusThresholds=DEFAULT_TH
                                          page=pageno,thresholds=thresholds)
             record['source_series_device_visual_motifs']=detect_series_apparatus_motifs(
                 pdf[pageno-1],record,thresholds)
-            record['device_edges_automatically_created']=0
+            # Archi-dispositivo solo dove tratti disegnati coprono i gap (vedi cad_device_edges).
+            edges=device_edges(collect_vertical_strokes(pdf[pageno-1]),open_gaps(record),
+                               record['source_series_device_visual_motifs'],thresholds)
+            record['device_edges']=edges
+            record['device_edges_automatically_created']=sum(e['device_edge_created'] for e in edges)
+            record['tr_inverter_paths_through_devices']=tr_inverter_paths(record,edges)
             output.append(record)
     return {'schema':SCHEMA,'source_pdf':str(path),'source_pdf_sha256':h,
             'thresholds':thresholds.as_dict(),
             'source_ground_truth_used':False,
             'text_inference_from_plant_filename':False,'electrical_continuity_not_inferred_across_gaps':True,
+            'gaps_crossed_only_with_drawn_leads':True,
             'pages':output,
             'summary':{'pages_examined':len(output),
                        'page_bus_candidates_source_supported':sum(bool(x['busbar_evidence']['bus']) for x in output),
@@ -301,6 +321,9 @@ def audit_cad_pdf(pdf_path,alpha20_report,thresholds:CadBusThresholds=DEFAULT_TH
                        'source_inline_device_like_motifs_unclassified':sum(
                            r.get('status')=='IN_LINE_DEVICE_LIKE_SYMBOL_SOURCE_OBSERVED_UNCLASSIFIED'
                            for p in output for r in p.get('source_series_device_visual_motifs',[])),
+                       'device_edges_source_connected':sum(x['device_edges_automatically_created'] for x in output),
+                       'tr_inverter_paths_through_unclassified_devices':sum(
+                           len(x['tr_inverter_paths_through_devices']) for x in output),
                        'tr_inverter_automatically_electrically_verified':0,
                        'matrix_flow_import_ready':False}}
 
@@ -317,23 +340,43 @@ def write_alpha22_reports(pdf_path,report,out_dir):
                     'discontinuita_protezione','stato_parent','continuita_elettrica_automatica'])
         for page in report['pages']:
             b=page['busbar_evidence'].get('bus');tr=page['winding_evidence'].get('transformer')
+            with_path={p['converter_candidate_id'] for p in page.get('tr_inverter_paths_through_devices',[])}
             for item in b.get('members',[]) if b else []:
+                crossed=item['converter_candidate_id'] in with_path
                 w.writerow([page['page'],item['converter_candidate_id'],b['source_stroke_index'],
                             json.dumps(b['bbox_px']),
                             json.dumps(tr['winding_pair_source_paths']) if tr else '',
                             tr['secondary_source_stroke_index'] if tr else '',
-                            'NON_PONTICELLATE', 'CANDIDATO_GEOMETRICO_NON_CONFERMATO', 'NO'])
+                            'ATTRAVERSATE_CON_ARCHI_DISPOSITIVO' if crossed else 'NON_PONTICELLATE',
+                            'CANDIDATO_PERCORSO_CON_DISPOSITIVI_NON_CLASSIFICATI' if crossed
+                            else 'CANDIDATO_GEOMETRICO_NON_CONFERMATO',
+                            'NO'])
     out_devices=dest/'alpha22_dispositivi_in_serie_candidati.csv'
     with out_devices.open('w',newline='',encoding='utf-8-sig') as fh:
         w=csv.writer(fh,delimiter=';')
         w.writerow(['pagina','tipo_interruzione','apparecchiatura_a_valle','percorso_sorgente','contatti_sorgente',
                     'bbox_px','stato_simbolo','tipologia_elettrica_verificata','arco_dispositivo_creato'])
         for page in report['pages']:
+            edge_ok={(e['gap_type'],e['downstream_entity']) for e in page.get('device_edges',[])
+                     if e['device_edge_created']}
             for item in page.get('source_series_device_visual_motifs',[]):
+                created=(item['gap_type'],item['downstream_entity']) in edge_ok
                 w.writerow([page['page'],item['gap_type'],item['downstream_entity'],
                             item.get('outline_source_path_index',''),
                             json.dumps(item.get('contact_source_path_indices',[])),
-                            json.dumps(item.get('symbol_bbox_px',[])),item['status'],'NO','NO'])
+                            json.dumps(item.get('symbol_bbox_px',[])),item['status'],'NO',
+                            'SI' if created else 'NO'])
+    result={'report':out_json,'csv':out_csv,'dispositivi':out_devices}
+    checks=report.get('operator_review_cross_check') or []
+    if checks:
+        out_checks=dest/'alpha22_confronto_review_percorsi.csv'
+        with out_checks.open('w',newline='',encoding='utf-8-sig') as fh:
+            w=csv.writer(fh,delimiter=';')
+            w.writerow(['gruppo_QPS','CU','TR','INV','inverter_grafico','avvolgimento_automatico','esito'])
+            for c in checks:
+                w.writerow([c['qps_group'],c['CU'],c['TR'],c['INV'],c['converter_candidate_id'] or '',
+                            json.dumps(c['automatic_winding']) if c['automatic_winding'] else '',c['status']])
+        result['confronto_review']=out_checks
     previews=[]
     # This is an optional visualization; failure does not alter provenance.
     try:
@@ -343,8 +386,8 @@ def write_alpha22_reports(pdf_path,report,out_dir):
                 if not b:continue
                 page=pdf[r['page']-1]
                 im=_render(page)
-                # Rendering uses the same aspect-ratio of the 1000px coordinate frame.
-                k=im.width/1000.0 if page.rect.width>=page.rect.height else im.height/1000.0
+                # _render usa lo stesso rapporto di frame_scale: 1 px immagine = 1 unita di coordinata.
+                k=1.0
                 draw=ImageDraw.Draw(im)
                 x0,y,x1,_=b['bbox_px']
                 draw.line((x0*k,y*k,x1*k,y*k),fill='#e11d48',width=6)
@@ -383,4 +426,4 @@ def write_alpha22_reports(pdf_path,report,out_dir):
                     crop.save(detail);previews.append(str(detail))
     except (ValueError,RuntimeError,OSError):
         pass
-    return {'report':out_json,'csv':out_csv,'dispositivi':out_devices,'previews':previews}
+    return {**result,'previews':previews}

@@ -6,6 +6,7 @@ from .sap.cad_conductor_graph_alpha20 import inspect_cad_conductor_runs, write_c
 from .sap.cad_qps_hierarchy_alpha21 import build_alpha21_hierarchy, write_alpha21_outputs
 from .sap.cad_bus_provenance_alpha22 import audit_cad_pdf, write_alpha22_reports
 from .sap.cad_thresholds import CadBusThresholds
+from .sap.cad_device_edges import cross_check_review
 
 
 def main(argv=None):
@@ -24,6 +25,9 @@ def main(argv=None):
         review=json.loads(Path(a.review_json).read_text(encoding='utf-8-sig')) if a.review_json else None
         result,export=build_alpha21_hierarchy(a.pdf,plant,report20,prior,base['converter_candidates'],review)
         topological=audit_cad_pdf(a.pdf,report20,thresholds)
+        # Solo una review effettivamente applicata viene confrontata con i percorsi.
+        topological['operator_review_cross_check']=cross_check_review(
+            review if export else None,result,topological)
         # Validate operator input before touching the output directory.
         write_cad_conductor_outputs(base,previews,prior,report20,a.out)
         paths21=write_alpha21_outputs(result,export,a.out)
@@ -34,7 +38,15 @@ def main(argv=None):
     print('Gerarchia QPS:',result['summary'])
     print('Sbarre e discontinuita:',topological['summary'])
     for name,path in {**paths21,**paths22}.items():print('  ',name,':',path)
-    print('Connessioni complete automatiche TR->INV: 0. Nessuna discontinuita e stata attraversata per supposizione.')
+    s=topological['summary']
+    print(f"Archi-dispositivo con tratti disegnati: {s['device_edges_source_connected']}; "
+          f"percorsi TR->INV attraverso apparecchi NON classificati: {s['tr_inverter_paths_through_unclassified_devices']}")
+    checks=topological['operator_review_cross_check']
+    if checks:
+        from collections import Counter
+        print('Confronto review operatore / percorsi disegnati:',dict(Counter(c['status'] for c in checks)))
+    print('Continuita elettrica verificata: 0 (tipo e stato degli apparecchi ignoti). '
+          'Nessuna discontinuita attraversata senza tratti disegnati.')
     return 0
 
 if __name__=='__main__':raise SystemExit(main())

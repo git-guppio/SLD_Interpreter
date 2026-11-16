@@ -3,6 +3,27 @@
 Le note di rilascio originali, complete, sono in [docs/storico/](docs/storico/)
 (`LEGGIMI_ALPHAn.md`).
 
+## 0.24.0 — archi-dispositivo nei CAD vettoriali (2026-11-16)
+
+- Nuovo stadio `sap/cad_device_edges.py`: un apparecchio in serie viene
+  attraversato come arco tipizzato `DEVICE` solo se tratti disegnati (qualsiasi
+  colore, non tratteggiati) coprono i due spazi residui capo→simbolo→capo lungo
+  l'asse del ramo. Lacune oltre `device_attach_tolerance` lasciano il gap aperto.
+- Percorsi TR → apparecchio → sbarra → apparecchio → inverter riportati
+  nell'audit come relazione `inferred` (`PATH_THROUGH_UNCLASSIFIED_DEVICES`);
+  tipo/stato degli apparecchi non classificati, continuità verificata sempre 0.
+- CSV Alpha22 aggiornati: `discontinuita_protezione` =
+  `ATTRAVERSATE_CON_ARCHI_DISPOSITIVO` e `arco_dispositivo_creato` = `SI` dove
+  l'arco esiste; altrimenti valori invariati.
+- Confronto review operatore / percorsi disegnati
+  (`alpha22_confronto_review_percorsi.csv`); la review non viene modificata.
+- **Fix:** sulle pagine con lato < 1000 pt (A4/A3) la ricerca dei simboli in serie
+  e l'anteprima PNG usavano una scala diversa da quella dei conduttori; ora
+  tutti gli stadi usano `frame_scale`. Nessun effetto su pagine grandi come Settimo.
+- Nuove soglie `device_axis_tolerance`, `device_attach_tolerance`.
+- 14 nuovi test (418 in totale), incluso un PDF sintetico con topologia tipo Settimo.
+- **Non validato su PDF reali**: i PDF di impianto non sono nel repository.
+
 ## 0.23.0 — motori come plugin, modello dati unico, soglie configurabili (2026-11-16)
 
 - Nuovo pacchetto `engines/`: ogni motore (etichette native, tag indicizzati,

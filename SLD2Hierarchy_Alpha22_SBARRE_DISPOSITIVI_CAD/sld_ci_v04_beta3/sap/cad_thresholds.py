@@ -32,6 +32,10 @@ class CadBusThresholds:
     # Motivi di apparecchiatura in serie (detect_series_apparatus_motifs), RGB 0..1
     series_outline_color: Color = (0.0, 1.0, 0.0)
     series_contact_color: Color = (1.0, 0.0, 1.0)
+    # Archi dispositivo (cad_device_edges): i tratti disegnati devono coprire i due
+    # spazi residui conduttore->simbolo->conduttore lungo l'asse del ramo.
+    device_axis_tolerance: float = 0.6     # scostamento max di un tratto dall'asse
+    device_attach_tolerance: float = 0.55  # lacuna max ammessa (= tolleranza capi Alpha20)
 
     def as_dict(self) -> dict:
         return asdict(self)

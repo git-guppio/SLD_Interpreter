@@ -44,3 +44,14 @@ SAP automaticamente certificata.
 
 Non dichiarare un SLD generico riconosciuto solo perché i test del codice
 passano: 384/384 è regressione software, **non** precisione sul mondo reale.
+
+## Aggiornamento 0.24.0 (2026-11-16)
+
+Il blocco 1 è stato affrontato in parte: esiste ora uno stadio che crea
+archi-dispositivo quando i collegamenti capo→simbolo→capo sono disegnati, e
+ricostruisce i percorsi TR→INV come relazioni `inferred`. Restano aperti la
+classificazione del tipo di apparecchio e del suo stato aperto/chiuso.
+Lo stadio è verificato solo su PDF sintetici: **il risultato su Settimo e PV3
+non è ancora stato misurato** perché i PDF originali non sono disponibili in
+questo repository. Fino a quella misura, i collegamenti TR→INV automatici su
+Settimo vanno considerati ancora 0.

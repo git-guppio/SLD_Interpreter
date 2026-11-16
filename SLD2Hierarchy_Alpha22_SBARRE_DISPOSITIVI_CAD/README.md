@@ -12,7 +12,7 @@ un tracciato di import Matrix FLOW certificato. Ogni relazione è marcata come
 candidata, confermata dall'operatore o non risolta; il programma si astiene
 piuttosto che inventare asset o collegamenti.
 
-Versione: **0.23.0 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
+Versione: **0.24.0 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
 Stato reale e limiti: [docs/STATO_PRODOTTO.md](docs/STATO_PRODOTTO.md).
 
 ## Installazione
@@ -34,7 +34,7 @@ Per l'OCR delle etichette QPS nei CAD vettoriali serve inoltre
 | Cosa | Come |
 |---|---|
 | **Analisi di un PDF (uso normale)** | `AVVIA_SLD2HIERARCHY.bat` — GUI con selettore file; sceglie da sola il motore adatto al PDF |
-| Esecuzione dei test | `run_tests.bat` (attesi 404: 355 beta3 + 49 dev14c) |
+| Esecuzione dei test | `run_tests.bat` (attesi 418: 369 beta3 + 49 dev14c) |
 | CAD vettoriale da riga di comando | `strumenti\ANALIZZA_CAD_VETTORIALE.bat` |
 | Altre diagnostiche, HITL, integrazione SLD+layout | `strumenti\*.bat` |
 | Gerarchia normalizzata per esecuzioni già fatte | `python -m sld_ci_v04_beta3.normalizza_cli --tutte reports` |
@@ -73,6 +73,21 @@ Le tolleranze geometriche e i colori dei simboli usati dal motore CAD sono in
 [config/soglie_cad_default.json](config/soglie_cad_default.json). Per un nuovo
 stile copiare il file, modificarlo e passarlo con `--soglie` alla CLI
 `alpha22_cli`. Le soglie effettive sono registrate nel report di audit.
+
+### Attraversamento degli apparecchi (CAD vettoriali)
+
+Un apparecchio in serie trovato in una discontinuità (TR→sbarra,
+sbarra→inverter) diventa un **arco-dispositivo** del grafo solo se tratti
+realmente disegnati nel PDF coprono, senza lacune oltre
+`device_attach_tolerance`, lo spazio fra il capo del conduttore e il simbolo
+da entrambi i lati. Quando tutti gli archi esistono, l'audit riporta il percorso
+TR → apparecchio → sbarra → apparecchio → inverter come relazione `inferred`:
+tipo e stato (aperto/chiuso) degli apparecchi non sono classificati, quindi
+non è una continuità elettrica verificata.
+
+Con una review operatore applicata, `alpha22_confronto_review_percorsi.csv`
+indica per ogni inverter se la conferma è `SUPPORTATA_DA_PERCORSO`,
+`SENZA_PERCORSO_AUTOMATICO` o `IN_CONFLITTO_CON_PERCORSO` (da ricontrollare).
 
 ### Review operatore (CAD vettoriali)
 
