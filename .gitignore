@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 reports/
+
+# PDF e dati di impianto reali: mai nel repository
+SLD2Hierarchy_Alpha22_SBARRE_DISPOSITIVI_CAD/dati_impianti/*
+!SLD2Hierarchy_Alpha22_SBARRE_DISPOSITIVI_CAD/dati_impianti/LEGGIMI.md
