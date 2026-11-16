@@ -26,6 +26,7 @@ except ImportError:
 from PIL import Image, ImageDraw, ImageFont
 from .cad_conductor_graph_alpha20 import extract_solid_conductors, _distance
 from .vector_diagnostics_alpha17 import _render
+from .cad_thresholds import CadBusThresholds, DEFAULT as DEFAULT_THRESHOLDS
 
 SCHEMA='sld-alpha22-cad-bus-evidence/v1'
 
@@ -155,10 +156,15 @@ def match_winding_to_bus(winding_evidence,bus,strokes,*,max_axis_offset=2.5,max_
             'transformer':candidates[0],'electrical_path_verified':False}
 
 
-def audit_bus_and_winding(strokes,runs,winding_evidence,*,page=1):
+def audit_bus_and_winding(strokes,runs,winding_evidence,*,page=1,thresholds:CadBusThresholds=DEFAULT_THRESHOLDS):
     """Pure, deterministic graph audit; no access to filenames or inventory."""
-    buses=identify_common_buses(strokes,runs,page=page)
-    winding=match_winding_to_bus(winding_evidence,buses.get('bus'),strokes)
+    t=thresholds
+    buses=identify_common_buses(strokes,runs,page=page,max_gap=t.bus_max_gap,min_span=t.bus_min_span,
+                                transverse_tolerance=t.bus_transverse_tolerance,
+                                ambiguous_ratio=t.bus_ambiguous_ratio)
+    winding=match_winding_to_bus(winding_evidence,buses.get('bus'),strokes,
+                                 max_axis_offset=t.winding_max_axis_offset,
+                                 max_wire_gap=t.winding_max_wire_gap)
     verified=[]
     if buses['bus']:
         verified=[r['converter_candidate_id'] for r in buses['bus']['members']]
@@ -173,7 +179,7 @@ def audit_bus_and_winding(strokes,runs,winding_evidence,*,page=1):
 
 
 
-def detect_series_apparatus_motifs(page, audit_record):
+def detect_series_apparatus_motifs(page, audit_record, thresholds:CadBusThresholds=DEFAULT_THRESHOLDS):
     """Identify source green/magenta in-line symbol motifs *inside* open gaps.
 
     This is deliberately a *device-like visual* class. It is NOT sufficient
@@ -197,14 +203,18 @@ def detect_series_apparatus_motifs(page, audit_record):
     # Alpha20; no template, plant-name or expected fanout is supplied.
     k=1000/max(page.rect.width,page.rect.height)
     rotation=page.rotation_matrix
+    # "green" = contorno del simbolo, "magenta" = contatti interni (colori del profilo).
+    outline_color=tuple(thresholds.series_outline_color)
+    contact_color=tuple(thresholds.series_contact_color)
     green=[];magenta=[]
     for path_id,path in enumerate(page.get_drawings()):
         color=path.get('color')
-        if color not in ((0.,1.,0.),(1.,0.,1.)):continue
+        color=tuple(color) if color is not None else None
+        if color not in (outline_color,contact_color):continue
         b=path['rect']*rotation
         a=tuple(float(v*k) for v in (b.x0,b.y0,b.x1,b.y1))
         if any(not math.isfinite(v) for v in a):continue
-        if color==(0.,1.,0.):
+        if color==outline_color:
             w=a[2]-a[0];h=a[3]-a[1]
             if not (.8<=w<=5 and 1.5<=h<=7):continue
             if not (.25<=w/h<=1.8):continue
@@ -256,7 +266,7 @@ def detect_series_apparatus_motifs(page, audit_record):
     return matches
 
 
-def audit_cad_pdf(pdf_path,alpha20_report):
+def audit_cad_pdf(pdf_path,alpha20_report,thresholds:CadBusThresholds=DEFAULT_THRESHOLDS):
     """Run once per page with source transformer/converter evidence from Alpha20."""
     path=Path(pdf_path)
     dig=hashlib.sha256()
@@ -273,11 +283,14 @@ def audit_cad_pdf(pdf_path,alpha20_report):
         for pageno in sorted(by_page):
             if not 1<=pageno<=len(pdf):continue
             strokes=extract_solid_conductors(pdf[pageno-1])
-            record=audit_bus_and_winding(strokes,by_page[pageno],winding_page.get(pageno,[]),page=pageno)
-            record['source_series_device_visual_motifs']=detect_series_apparatus_motifs(pdf[pageno-1],record)
+            record=audit_bus_and_winding(strokes,by_page[pageno],winding_page.get(pageno,[]),
+                                         page=pageno,thresholds=thresholds)
+            record['source_series_device_visual_motifs']=detect_series_apparatus_motifs(
+                pdf[pageno-1],record,thresholds)
             record['device_edges_automatically_created']=0
             output.append(record)
     return {'schema':SCHEMA,'source_pdf':str(path),'source_pdf_sha256':h,
+            'thresholds':thresholds.as_dict(),
             'source_ground_truth_used':False,
             'text_inference_from_plant_filename':False,'electrical_continuity_not_inferred_across_gaps':True,
             'pages':output,

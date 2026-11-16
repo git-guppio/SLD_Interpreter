@@ -3,6 +3,25 @@
 Le note di rilascio originali, complete, sono in [docs/storico/](docs/storico/)
 (`LEGGIMI_ALPHAn.md`).
 
+## 0.23.0 — motori come plugin, modello dati unico, soglie configurabili (2026-11-16)
+
+- Nuovo pacchetto `engines/`: ogni motore (etichette native, tag indicizzati,
+  LVL, CAD vettoriale) è un `Recognizer` con regola di riconoscimento, comando
+  e lettura degli output. Il workbench sceglie il motore dal registro invece
+  che da `if` cablati; gli identificativi storici (`alpha12`, `alpha15-indexed`,
+  `alpha16-lvl`, `alpha21-cad`) restano invariati.
+- Modello dati unico (`engines/model.py`): i due formati di CSV di evidenze dei
+  motori vengono letti in un'unica struttura con stati
+  `observed / inferred / operator_confirmed / unresolved`. Codici sconosciuti
+  diventano `unresolved` (mai "confermato").
+- Ogni esecuzione dal workbench scrive `gerarchia_normalizzata.csv`/`.json`;
+  `normalizza_cli` fa lo stesso per esecuzioni già esistenti.
+- Soglie del motore CAD Alpha22 (sbarra, avvolgimento, colori dei simboli in
+  serie) estratte in `CadBusThresholds`, profilo `config/soglie_cad_default.json`,
+  opzione `--soglie`. Default identici al comportamento precedente; soglie
+  registrate nel report di audit; profilo non valido = errore prima di scrivere output.
+- 20 nuovi test (404 in totale).
+
 ## 0.22.1 — consolidamento (2026-11-16)
 
 - **Fix:** crash della pipeline CAD vettoriale (Alpha 18→22) con OpenCV 5:

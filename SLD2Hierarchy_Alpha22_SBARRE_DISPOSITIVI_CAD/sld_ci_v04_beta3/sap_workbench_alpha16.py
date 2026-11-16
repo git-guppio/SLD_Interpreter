@@ -11,7 +11,6 @@ Each execution writes to a new run folder; the source PDF is read-only.
 from __future__ import annotations
 
 import csv
-from itertools import islice
 from datetime import datetime
 import hashlib
 import json
@@ -23,11 +22,9 @@ import sys
 import threading
 
 from . import __version__
-from .sap_picker_gui import build_export_command, default_plant_id, valid_plant_id
+from .sap_picker_gui import default_plant_id, valid_plant_id
 from .sap.evidence_visual_alpha13 import LEDGER_FILENAME, load_evidence
-from .sap.multistyle_alpha15 import TR_RE, INV_RE
-from .sap.lvl_indexed_alpha16 import detect_lvl_family
-from .sap.vector_diagnostics_alpha17 import vector_only_document
+from .engines import engine_by_mode, select_engine
 
 REPORT_NAME = 'alpha12_riepilogo.json'
 XLSX_NAME = 'alpha12_gerarchie_stereotipi.xlsx'
@@ -287,25 +284,24 @@ def write_portfolio_csv(project_root: Path) -> tuple[Path, int]:
 
 
 def choose_recognition_mode(pdf_path: Path, review=None) -> str:
-    """Pick a second *documentary* tag family only when its evidence exists.
+    """Identificativo del motore scelto per il PDF (vedi ``engines.registry``).
 
-    Reviewed Alpha13 outputs always use their original Alpha12 pipeline.
-    This is dispatch, not a global recognition claim.
+    Mantenuta per compatibilita: la logica di scelta vive nel registro.
     """
-    if review is not None:
-        return 'alpha12'
-    try:
-        import pymupdf
-    except ImportError:
-        import fitz as pymupdf
-    tr=False;inv=False
-    with pymupdf.open(str(pdf_path)) as doc:
-        for page in islice(doc,3):
-            text=page.get_text('text')
-            tr=tr or bool(TR_RE.search(text))
-            inv=inv or bool(INV_RE.search(text))
-    if tr and inv:return 'alpha15-indexed'
-    return 'alpha16-lvl' if detect_lvl_family(pdf_path) else ('alpha21-cad' if vector_only_document(pdf_path) else 'alpha12')
+    return select_engine(pdf_path, review).mode
+
+
+def write_normalized_hierarchy(mode: str, destination: Path) -> str:
+    """Scrive gerarchia_normalizzata.csv/.json e restituisce una riga di log."""
+    hierarchy = engine_by_mode(mode).load_hierarchy(destination)
+    if not hierarchy.rows:
+        return '[GERARCHIA NORMALIZZATA] nessuna riga CU/TR/INV prodotta dal motore.'
+    paths = hierarchy.write(destination)
+    s = hierarchy.summary()
+    return ('[GERARCHIA NORMALIZZATA] '
+            f'inverter={s["righe_inverter"]}, parent confermati={s["parent_confermati_operatore"]}, '
+            f'proposti={s["parent_proposti"]}, non risolti={s["parent_non_risolti"]}, '
+            f'SB risolte={s["string_box_totale_risolto"]} -> {paths["csv"].name}')
 
 
 def main() -> int:
@@ -437,19 +433,15 @@ def main() -> int:
     def start_engine(pdf, plant_id, review=None, cad_review=None):
         try:
             destination = next_run_directory(project_root, plant_id)
-            mode=choose_recognition_mode(pdf,review)
-            if mode in ('alpha15-indexed','alpha16-lvl','alpha21-cad'):
-                cli='alpha22_cli' if mode=='alpha21-cad' else ('alpha16_cli' if mode=='alpha16-lvl' else 'alpha15_cli')
-                cmd=[sys.executable,'-m','sld_ci_v04_beta3.'+cli,
-                     '--pdf',str(pdf),'--out',str(destination)]
-                cmd.extend(['--plant-id',plant_id])
-                if mode=='alpha21-cad' and cad_review:cmd.extend(['--review-json',str(cad_review)])
-            else:
-                cmd=build_export_command(pdf,plant_id,destination,review)
+            engine=select_engine(pdf,review)
+            mode=engine.mode
+            # Review Alpha13 -> motore a etichette; review CAD -> motore vettoriale.
+            engine_review=review if review is not None else (cad_review if mode=='alpha21-cad' else None)
+            cmd=engine.build_command(pdf,plant_id,destination,engine_review)
         except (ValueError, OSError) as ex:
             show_error('Impossibile avviare', ex);return
         log('--- Analisi SLD ---')
-        log('Metodo: '+mode)
+        log(f'Metodo: {engine.label} [{mode}]')
         log('Sorgente: '+str(pdf))
         log('Impianto: '+plant_id)
         log('HITL: '+ (str(review) if review else 'nessuno'))
@@ -464,6 +456,11 @@ def main() -> int:
                 for line in process.stdout:
                     events.put(('line',line.rstrip()))
                 code=process.wait()
+                if code==0:
+                    try:
+                        events.put(('line',write_normalized_hierarchy(mode,destination)))
+                    except (OSError,ValueError,KeyError) as ex:
+                        events.put(('line',f'[GERARCHIA NORMALIZZATA] non scritta: {ex}'))
                 events.put(('finished',code,destination,pdf,mode))
             except OSError as ex:
                 events.put(('error',str(ex)))

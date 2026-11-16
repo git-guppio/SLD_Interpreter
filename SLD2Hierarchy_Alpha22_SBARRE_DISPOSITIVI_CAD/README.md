@@ -12,7 +12,7 @@ un tracciato di import Matrix FLOW certificato. Ogni relazione è marcata come
 candidata, confermata dall'operatore o non risolta; il programma si astiene
 piuttosto che inventare asset o collegamenti.
 
-Versione: **0.22.1 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
+Versione: **0.23.0 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
 Stato reale e limiti: [docs/STATO_PRODOTTO.md](docs/STATO_PRODOTTO.md).
 
 ## Installazione
@@ -34,13 +34,20 @@ Per l'OCR delle etichette QPS nei CAD vettoriali serve inoltre
 | Cosa | Come |
 |---|---|
 | **Analisi di un PDF (uso normale)** | `AVVIA_SLD2HIERARCHY.bat` — GUI con selettore file; sceglie da sola il motore adatto al PDF |
-| Esecuzione dei test | `run_tests.bat` (attesi 384: 335 beta3 + 49 dev14c) |
+| Esecuzione dei test | `run_tests.bat` (attesi 404: 355 beta3 + 49 dev14c) |
 | CAD vettoriale da riga di comando | `strumenti\ANALIZZA_CAD_VETTORIALE.bat` |
 | Altre diagnostiche, HITL, integrazione SLD+layout | `strumenti\*.bat` |
+| Gerarchia normalizzata per esecuzioni già fatte | `python -m sld_ci_v04_beta3.normalizza_cli --tutte reports` |
 | Workbench e CLI di versioni precedenti | `legacy\*.bat` (non più mantenuti) |
 
 Gli output vanno in `reports\…` (una nuova cartella per esecuzione, mai
 sovrascritta). Il PDF sorgente è aperto in sola lettura.
+
+Oltre ai file propri del motore, ogni esecuzione dal workbench scrive
+`gerarchia_normalizzata.csv`/`.json`: stesso formato per tutti i motori, con
+stato del parent e della quantità String Box ricondotto a
+`observed / inferred / operator_confirmed / unresolved` (il codice originale
+del motore resta in colonna). `unresolved` non significa zero o assente.
 
 ### Scelta automatica del motore
 
@@ -51,6 +58,21 @@ sovrascritta). Il PDF sorgente è aperto in sola lettura.
 | Etichette `LVL-SB…-INV…` | famiglia LVL (Alpha 16) |
 | Nessun testo nativo (solo vettoriale) | CAD vettoriale (Alpha 17–22) |
 | Altrimenti | etichette native (Alpha 12) |
+
+### Aggiungere uno stile di SLD
+
+I motori sono plugin in `sld_ci_v04_beta3/engines/`: una sottoclasse di
+`Recognizer` dichiara come riconoscere lo stile (`matches`), quale CLI
+eseguire e quali file di output leggere. Va poi aggiunta a `ENGINES` in
+`engines/registry.py`, prima del motore di ripiego. Il workbench la usa senza
+altre modifiche.
+
+### Soglie del motore CAD
+
+Le tolleranze geometriche e i colori dei simboli usati dal motore CAD sono in
+[config/soglie_cad_default.json](config/soglie_cad_default.json). Per un nuovo
+stile copiare il file, modificarlo e passarlo con `--soglie` alla CLI
+`alpha22_cli`. Le soglie effettive sono registrate nel report di audit.
 
 ### Review operatore (CAD vettoriali)
 
@@ -66,9 +88,10 @@ AVVIA_SLD2HIERARCHY.bat     punto d'ingresso
 run_tests.bat               test
 strumenti/                  launcher di diagnostica / HITL / integrazione
 legacy/                     launcher di versioni superate
+config/                     profili di soglie
 docs/                       stato prodotto, roadmap, requisiti PoC, storico LEGGIMI
 examples/                   output di riferimento e review di esempio
-sld_ci_v04_beta3/           codice attivo (sap/, geometry/, integration/, CLI, GUI)
+sld_ci_v04_beta3/           codice attivo (engines/, sap/, geometry/, integration/, CLI, GUI)
 sld_ci_v04_beta2_dev14c/    motore legacy CONGELATO: non modificare
 ```
 
