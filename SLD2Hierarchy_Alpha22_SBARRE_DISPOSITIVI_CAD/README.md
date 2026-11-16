@@ -12,7 +12,7 @@ un tracciato di import Matrix FLOW certificato. Ogni relazione è marcata come
 candidata, confermata dall'operatore o non risolta; il programma si astiene
 piuttosto che inventare asset o collegamenti.
 
-Versione: **0.25.0 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
+Versione: **0.26.0 (Alpha 22)** — vedi [CHANGELOG.md](CHANGELOG.md).
 Stato reale e limiti: [docs/STATO_PRODOTTO.md](docs/STATO_PRODOTTO.md).
 
 ## Installazione
@@ -34,7 +34,7 @@ Per l'OCR delle etichette QPS nei CAD vettoriali serve inoltre
 | Cosa | Come |
 |---|---|
 | **Analisi di un PDF (uso normale)** | `AVVIA_SLD2HIERARCHY.bat` — GUI con selettore file; sceglie da sola il motore adatto al PDF |
-| Esecuzione dei test | `run_tests.bat` (attesi 424: 375 beta3 + 49 dev14c) |
+| Esecuzione dei test | `run_tests.bat` (attesi 434: 385 beta3 + 49 dev14c) |
 | CAD vettoriale da riga di comando | `strumenti\ANALIZZA_CAD_VETTORIALE.bat` |
 | Altre diagnostiche, HITL, integrazione SLD+layout | `strumenti\*.bat` |
 | Gerarchia normalizzata per esecuzioni già fatte | `python -m sld_ci_v04_beta3.normalizza_cli --tutte reports` |
@@ -83,10 +83,12 @@ realmente disegnati nel PDF coprono, senza lacune oltre
 simbolo da entrambi i lati: tratti verticali e primitive IEC 60617 poggiate
 sull'asse (triangolo del contatto estraibile, X dell'interruttore, lama del
 contatto mobile). Dalle primitive deriva un tipo candidato
-(`INTERRUTTORE_ESTRAIBILE`, `SEZIONATORE_O_IMS`, …), da confermare. Quando tutti gli archi esistono, l'audit riporta il percorso
+(`INTERRUTTORE_ESTRAIBILE`, `SEZIONATORE_O_IMS`, …), da confermare.
+
+Quando tutti gli archi esistono, l'audit riporta il percorso
 TR → apparecchio → sbarra → apparecchio → inverter come relazione `inferred`:
-tipo e stato (aperto/chiuso) degli apparecchi non sono classificati, quindi
-non è una continuità elettrica verificata.
+lo stato aperto/chiuso degli apparecchi non è rappresentato nello schema e il
+tipo è solo candidato, quindi non è una continuità elettrica verificata.
 
 Con una review operatore applicata, `alpha22_confronto_review_percorsi.csv`
 indica per ogni inverter se la conferma è `SUPPORTATA_DA_PERCORSO`,
@@ -94,10 +96,24 @@ indica per ogni inverter se la conferma è `SUPPORTATA_DA_PERCORSO`,
 
 ### Review operatore (CAD vettoriali)
 
-Per promuovere CU/TR/INV su un CAD senza testo serve un JSON di review
-vincolato a `plant_id` e **SHA256 del PDF** — esempio:
+Per promuovere CU/TR/INV su un CAD senza testo serve una review vincolata a
+`plant_id` e **SHA256 del PDF**. Non va più scritta a mano:
+
+1. al termine di un'analisi CAD senza review, il workbench propone una
+   finestra con la bozza precompilata dai percorsi disegnati (TR proposto per
+   ogni inverter; CU da controllare, non dedotta dal disegno);
+2. l'operatore corregge CU/TR se serve, conferma esplicitamente
+   QPS = String Box e la numerazione QPS-n-k/N, e indica il riferimento della
+   verifica;
+3. la review viene salvata solo se supera lo stesso validatore della CLI e può
+   essere applicata subito rilanciando l'analisi.
+
+Da riga di comando: `python -m sld_ci_v04_beta3.review_editor_gui --run <cartella_esecuzione> --pdf <PDF>`.
+Serve Tesseract OCR: senza sequenze QPS la bozza è vuota.
+
+Esempio di review confermata:
 [examples/SETTIMO_TOP_SCHEMA_CONFERMATO_OPERATORE.json](examples/SETTIMO_TOP_SCHEMA_CONFERMATO_OPERATORE.json).
-Non applicarlo a PDF diversi da quello per cui è stato scritto.
+Non applicarla a PDF diversi da quello per cui è stata scritta.
 
 ## Struttura
 

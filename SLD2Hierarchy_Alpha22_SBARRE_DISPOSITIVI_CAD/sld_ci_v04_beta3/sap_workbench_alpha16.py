@@ -25,6 +25,7 @@ from . import __version__
 from .sap_picker_gui import default_plant_id, valid_plant_id
 from .sap.evidence_visual_alpha13 import LEDGER_FILENAME, load_evidence
 from .engines import engine_by_mode, select_engine
+from .review_editor_gui import open_review_editor
 
 REPORT_NAME = 'alpha12_riepilogo.json'
 XLSX_NAME = 'alpha12_gerarchie_stereotipi.xlsx'
@@ -585,6 +586,23 @@ def main() -> int:
                         if sys.platform=='win32':
                             try:os.startfile(str(destination))
                             except OSError:pass
+                        # Review guidata: bozza dai percorsi disegnati, conferma esplicita.
+                        if not checked and summary['qps_groups_complete'] and messagebox.askyesno(
+                                'Review operatore',
+                                'Preparare ora la review CU/TR/String Box?\n\n'
+                                'La bozza e precompilata dai percorsi disegnati: va controllata '
+                                'e confermata esplicitamente.',parent=root):
+                            plant_for_run=destination.parent.name
+
+                            def rerun_with(review_path,pdf=pdf,plant_for_run=plant_for_run):
+                                if messagebox.askyesno('Review salvata',
+                                        'Rieseguire ora l\'analisi applicando questa review?',parent=root):
+                                    start_engine(pdf,plant_for_run,cad_review=review_path)
+
+                            try:
+                                open_review_editor(root,destination,pdf,on_saved=rerun_with)
+                            except (OSError,ValueError,KeyError) as ex:
+                                show_error('Review non preparabile',ex)
                     elif code==0 and mode in ('alpha15-indexed','alpha16-lvl') and (
                         destination/('alpha16_diagnostica.json' if mode=='alpha16-lvl' else 'alpha15_diagnostica.json')).is_file():
                         active['pdf']=pdf

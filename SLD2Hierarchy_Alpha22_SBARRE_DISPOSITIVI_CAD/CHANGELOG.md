@@ -3,6 +3,22 @@
 Le note di rilascio originali, complete, sono in [docs/storico/](docs/storico/)
 (`LEGGIMI_ALPHAn.md`).
 
+## 0.26.0 — review operatore guidata, TR di qualsiasi taglia (2026-11-16)
+
+- Review CAD guidata (priorità 6): `sap/cad_review_draft.py` costruisce la
+  bozza dai percorsi disegnati e dalle sequenze QPS (SHA256, una riga per
+  gruppo, TR proposto per avvolgimento, CU da controllare);
+  `review_editor_gui.py` la mostra per modifica e conferma esplicita e salva
+  solo se il validatore Alpha21 la accetta. Il workbench la propone a fine
+  analisi CAD e può rilanciare subito con la review. Su Settimo la bozza
+  coincide con la review scritta a mano dall'operatore.
+- La bozza non confermata è sempre rifiutata dal validatore; gli inverter
+  senza percorso disegnato restano `DA_COMPILARE`.
+- Motore a etichette native: `TRANSFORMER` riconosciuto con qualsiasi potenza
+  plausibile (≥ 3 cifre: 800, 1600, 1.700, 2.500…), non solo `1.700` di PV11.
+  Il tag di PV11 resta identico; da riverificare sul PDF PV11 (non disponibile).
+- 10 nuovi test (434 in totale).
+
 ## 0.25.0 — primitive IEC 60617 e prima misura su PDF reali (2026-11-16)
 
 - Su Settimo e PV3 lo stadio 0.24.0 si asteneva su tutti gli apparecchi: le

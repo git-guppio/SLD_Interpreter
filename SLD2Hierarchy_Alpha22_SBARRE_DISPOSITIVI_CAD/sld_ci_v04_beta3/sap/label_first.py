@@ -23,6 +23,8 @@ except ImportError:
 
 SCHEMA = 'sld-sap-label-first-alpha10/v1'
 REVIEW_SCHEMA = 'sld-sap-alpha10-reviewed-parentage/v1'
+# Potenza di targa dopo 'TRANSFORMER': 1.700 / 2,500 / 1600 / 800, unita opzionale attaccata.
+_TR_RATING = re.compile(r'(?P<value>\d{1,2}[.,]\d{3}|\d{3,5})(?P<unit>kVA|MVA)?', re.I)
 
 
 def _at(words, i):
@@ -46,9 +48,15 @@ def _native_page(page, page_number):
             major,minor = map(int,nxt.split('.'))
             inverters.append({'printed_cu':major,'slot':minor,'tag':f'I {nxt}',
                               'xy':_at(words,i),'page':page_number})
-        if value.upper() == 'TRANSFORMER' and nxt == '1.700' and same_block:
+        # Prima solo 'TRANSFORMER 1.700' (taglia di PV11); ora qualsiasi potenza
+        # plausibile (>= 3 cifre: 800, 1.700, 2.500, 1600). 'TRANSFORMER 1' o '12'
+        # (legende, numerazioni) restano esclusi.
+        rating = _TR_RATING.fullmatch(nxt)
+        if value.upper() == 'TRANSFORMER' and rating and same_block:
+            unit = str(words[i+2][4]) if i+2 < len(words) and words[i+2][5] == w[5] else ''
+            unit = unit if unit.upper() in ('KVA', 'MVA') else (rating.group('unit') or 'kVA')
             transformers.append({'xy':_at(words,i),'page':page_number,
-                                 'tag':'TRANSFORMER 1.700 kVA'})
+                                 'tag':f"TRANSFORMER {rating.group('value')} {unit}"})
         # Only an explicit quantity label is eligible.  Never count
         # individual SB devices by multiplying inferred geometric cells.
         if re.fullmatch(r'\d{1,4}',value) and nxt.upper() == 'STRING' and same_block:
